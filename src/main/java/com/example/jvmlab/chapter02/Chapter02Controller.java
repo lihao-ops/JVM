@@ -1,10 +1,8 @@
 package com.example.jvmlab.chapter02;
 
+import com.example.jvmlab.common.AsmDynamicClassBuilder;
 import com.example.jvmlab.common.JvmMemoryMonitor;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.ByteBuddy;
-import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
-import net.bytebuddy.implementation.FixedValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -151,14 +149,10 @@ public class Chapter02Controller {
         try {
             while (count < classCount) {
                 String className = "com.example.jvmlab.generated.DynamicClass" + UUID.randomUUID().toString().replace("-", "");
-                Class<?> clazz = new ByteBuddy()
-                        .subclass(Object.class)
-                        .name(className)
-                        .defineMethod("toString", String.class)
-                        .intercept(FixedValue.value("Dynamic:" + count))
-                        .make()
-                        .load(getClass().getClassLoader(), ClassLoadingStrategy.Default.INJECTION)
-                        .getLoaded();
+                Class<?> clazz = AsmDynamicClassBuilder.createConstantToStringClass(
+                        getClass().getClassLoader(),
+                        className,
+                        "Dynamic:" + count);
                 CLASS_HOLDER.add(clazz);
                 count++;
                 if (count % 1000 == 0) {
