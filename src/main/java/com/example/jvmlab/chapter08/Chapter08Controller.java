@@ -1,7 +1,6 @@
 package com.example.jvmlab.chapter08;
 
 import lombok.extern.slf4j.Slf4j;
-import org.openjdk.jol.info.ClassLayout;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,11 +54,29 @@ public class Chapter08Controller {
     public Map<String, String> objectLayout() {
         log.info("打印对象内存布局 Printing object layout using JOL");
         SampleObject obj = new SampleObject();
-        String layout = ClassLayout.parseInstance(obj).toPrintable();
         Map<String, String> result = new HashMap<>();
-        result.put("layout", layout);
-        log.debug("对象布局 Object layout:\n{}", layout);
+        try {
+            String layout = extractLayoutViaReflection(obj);
+            result.put("layout", layout);
+            log.debug("对象布局 Object layout:\n{}", layout);
+        } catch (ClassNotFoundException ex) {
+            String message = "JOL依赖未找到，请在构建中添加 org.openjdk.jol:jol-core";
+            log.warn("JOL classpath missing: {}", ex.getMessage());
+            result.put("layout", message);
+        } catch (ReflectiveOperationException ex) {
+            String message = "使用JOL解析对象布局失败: " + ex.getMessage();
+            log.error(message, ex);
+            result.put("layout", message);
+        }
         return result;
+    }
+
+    private static String extractLayoutViaReflection(Object obj) throws ReflectiveOperationException {
+        Class<?> classLayout = Class.forName("org.openjdk.jol.info.ClassLayout");
+        Method parseInstance = classLayout.getMethod("parseInstance", Object.class);
+        Object layoutInstance = parseInstance.invoke(null, obj);
+        Method toPrintable = layoutInstance.getClass().getMethod("toPrintable");
+        return (String) toPrintable.invoke(layoutInstance);
     }
 
     /** MethodHandle示例目标类。 */
