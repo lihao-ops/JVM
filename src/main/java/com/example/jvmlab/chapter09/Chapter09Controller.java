@@ -2,7 +2,6 @@ package com.example.jvmlab.chapter09;
 
 import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.ByteBuddy;
-import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.implementation.FixedValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,13 +57,15 @@ public class Chapter09Controller {
     public String byteBuddy(@RequestParam(defaultValue = "bytebuddy") String message)
             throws ReflectiveOperationException {
         log.info("使用ByteBuddy生成类 Generating class via ByteBuddy, message={}", message);
-        DynamicType.Unloaded<SampleService> unloaded = new ByteBuddy()
+        Class<? extends SampleService> clazz = new ByteBuddy()
                 .subclass(Object.class)
                 .implement(SampleService.class)
                 .method(method -> method.getName().equals("process"))
                 .intercept(FixedValue.value("bytebuddy:" + message))
-                .make();
-        Class<? extends SampleService> clazz = unloaded.load(getClass().getClassLoader()).getLoaded();
+                .make()
+                .load(getClass().getClassLoader())
+                .getLoaded()
+                .asSubclass(SampleService.class);
         SampleService instance = clazz.getDeclaredConstructor().newInstance();
         String result = instance.process();
         log.info("ByteBuddy结果 ByteBuddy result: {}", result);
