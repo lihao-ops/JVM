@@ -257,6 +257,7 @@ public class Chapter03Controller {
     /**
      * 循环引用示例类A。
      */
+    @SuppressWarnings("removal")
     static class ObjectA {
         Object ref;
         byte[] data = new byte[1024 * 1024];
@@ -269,6 +270,7 @@ public class Chapter03Controller {
     /**
      * 循环引用示例类B。
      */
+    @SuppressWarnings("removal")
     static class ObjectB {
         Object ref;
         byte[] data = new byte[1024 * 1024];
@@ -281,6 +283,7 @@ public class Chapter03Controller {
     /**
      * 可自救对象示例。
      */
+    @SuppressWarnings("removal")
     static class FinalizableObject {
         static FinalizableObject instance;
         private final String name;
