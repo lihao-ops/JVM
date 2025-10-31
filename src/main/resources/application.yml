@@ -1,0 +1,79 @@
+# JVM Learning Lab 配置文件
+# 实现思路：
+# 1. 配置Spring Boot基础信息与上下文路径，方便归类所有实验接口。
+# 2. 启用Actuator并暴露全部端点，便于监控JVM性能指标。
+# 3. 提供开发(dev)与生产模拟(prod)两套参数建议，结合书中案例调节JVM配置。
+
+server:
+  port: 8080
+  servlet:
+    context-path: /jvm-lab
+
+spring:
+  application:
+    name: jvm-learning-lab
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      indent-output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  level:
+    root: INFO
+    com.example.jvmlab: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/jvm-lab.log
+
+---
+# 开发环境配置：用于学习测试，推荐较小内存以便快速触发异常。
+spring:
+  config:
+    activate:
+      on-profile: dev
+# JVM参数建议（在启动时添加）：
+# -Xms512m -Xmx512m
+# -XX:MaxDirectMemorySize=256m
+# -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m
+# -Xss256k
+# -XX:+PrintGCDetails -XX:+PrintGCDateStamps
+# -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/heapdump.hprof
+# -XX:+UseG1GC
+# -XX:+PrintCommandLineFlags
+
+---
+# 生产环境模拟：用于性能压测，可结合监控工具观察GC表现。
+spring:
+  config:
+    activate:
+      on-profile: prod
+# JVM参数建议：
+# -Xms4g -Xmx4g
+# -XX:MaxDirectMemorySize=2g
+# -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m
+# -Xss1m
+# -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+# -XX:+ParallelRefProcEnabled
+# -XX:+UnlockExperimentalVMOptions
+# -XX:+UseCGroupMemoryLimitForHeap
+# -Xlog:gc*:file=logs/gc.log:time,uptime:filecount=10,filesize=100m
