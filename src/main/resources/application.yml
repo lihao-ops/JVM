@@ -5,7 +5,7 @@
 # 3. 提供开发(dev)与生产模拟(prod)两套参数建议，结合书中案例调节JVM配置。
 
 server:
-  port: 8080
+  port: 1234
   servlet:
     context-path: /jvm-lab
 
