@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JVM 第2章：运行时数据区与内存管理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            color: #e6f1ff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 30px 0;
+            color: #64ffda;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.3);
+        }
+
+        .btn.active {
+            background: #64ffda;
+            color: #0a192f;
+        }
+
+        .scene-container {
+            background: rgba(17, 34, 64, 0.6);
+            border: 2px solid #233554;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            min-height: 600px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .scene {
+            display: none;
+        }
+
+        .scene.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .memory-regions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .region {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1) 0%, rgba(100, 255, 218, 0.05) 100%);
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .region:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .region-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+
+        .region-subtitle {
+            font-size: 0.9em;
+            color: #8892b0;
+            margin-bottom: 15px;
+        }
+
+        .region-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid #ff6b6b;
+            border-radius: 5px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .region-tag.shared {
+            background: rgba(107, 203, 255, 0.2);
+            border-color: #6bcbff;
+        }
+
+        .stack-frame {
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .object-creation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            width: 150px;
+            margin: 10px;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #64ffda;
+        }
+
+        .step:last-child::after {
+            content: '';
+        }
+
+        .gc-visualization {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .gc-algorithm {
+            background: rgba(100, 255, 218, 0.05);
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .object {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #64ffda;
+            border-radius: 5px;
+            margin: 5px;
+            transition: all 0.5s;
+            position: relative;
+        }
+
+        .object.dead {
+            background: #ff6b6b;
+            opacity: 0.3;
+        }
+
+        .object.alive {
+            background: #64ffda;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
+        }
+
+        .generation-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .generation {
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            padding: 20px;
+            background: rgba(100, 255, 218, 0.05);
+        }
+
+        .generation.young {
+            border-color: #ffd700;
+        }
+
+        .generation.old {
+            border-color: #ff6b6b;
+        }
+
+        .oom-card {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .flow-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-node {
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+            margin: 10px;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #64ffda;
+            margin: 0 10px;
+        }
+
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+            border-radius: 5px;
+        }
+
+        .info-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #ccd6f6;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .object-creation {
+                flex-direction: column;
+            }
+
+            .step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -30px;
+                transform: translateX(50%);
+            }
+
+            .gc-visualization {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>JVM 第2章：运行时数据区与内存管理</h1>
+
+    <div class="controls">
+        <button class="btn active" onclick="showScene(1)">1. 运行时数据区总览</button>
+        <button class="btn" onclick="showScene(2)">2. 栈帧与方法调用</button>
+        <button class="btn" onclick="showScene(3)">3. 对象创建流程</button>
+        <button class="btn" onclick="showScene(4)">4. GC 可达性分析</button>
+        <button class="btn" onclick="showScene(5)">5. 回收算法对比</button>
+        <button class="btn" onclick="showScene(6)">6. 分代收集</button>
+        <button class="btn" onclick="showScene(7)">7. 典型 OOM</button>
+        <button class="btn" onclick="showScene(8)">8. 定位思路</button>
+    </div>
+
+    <div class="scene-container">
+        <!-- Scene 1: 运行时数据区总览 -->
+        <div class="scene active" id="scene1">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">运行时数据区总览 / Runtime Data Areas</h2>
+            <p class="info-text">JVM 运行时数据区分为线程私有区域和线程共享区域，各司其职：</p>
+
+            <div class="memory-regions">
+                <div class="region">
+                    <div class="region-title">程序计数器</div>
+                    <div class="region-subtitle">Program Counter (PC)</div>
+                    <p>记录当前线程执行的字节码行号</p>
+                    <div class="region-tag">线程私有 / Thread-Private</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">Java 虚拟机栈</div>
+                    <div class="region-subtitle">JVM Stack</div>
+                    <p>每个方法执行创建栈帧，存储局部变量、操作数栈等</p>
+                    <div class="region-tag">线程私有 / Thread-Private</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">本地方法栈</div>
+                    <div class="region-subtitle">Native Method Stack</div>
+                    <p>为 Native 方法服务</p>
+                    <div class="region-tag">线程私有 / Thread-Private</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">堆</div>
+                    <div class="region-subtitle">Heap</div>
+                    <p>存放对象实例，GC 主要管理区域</p>
+                    <div class="region-tag shared">线程共享 / Shared</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">方法区 / 元空间</div>
+                    <div class="region-subtitle">Method Area / Metaspace</div>
+                    <p>存储类信息、常量、静态变量</p>
+                    <div class="region-tag shared">线程共享 / Shared</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">运行时常量池</div>
+                    <div class="region-subtitle">Runtime Constant Pool</div>
+                    <p>方法区的一部分，存放编译期常量和运行期常量</p>
+                    <div class="region-tag shared">线程共享 / Shared</div>
+                </div>
+
+                <div class="region">
+                    <div class="region-title">直接内存</div>
+                    <div class="region-subtitle">Direct Memory</div>
+                    <p>NIO 使用的堆外内存</p>
+                    <div class="region-tag shared">堆外 / Off-Heap</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2: 栈帧与方法调用 -->
+        <div class="scene" id="scene2">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">栈帧与方法调用 / Stack Frames</h2>
+            <p class="info-text">每次方法调用都会创建一个栈帧，包含方法执行所需的全部信息：</p>
+
+            <div style="margin-top: 30px;">
+                <div class="stack-frame" style="animation-delay: 0s;">
+                    <strong style="color: #64ffda;">栈帧 3: method_h()</strong>
+                    <div style="margin-top: 10px;">
+                        <div>📦 局部变量表 / Local Variables</div>
+                        <div>🔢 操作数栈 / Operand Stack</div>
+                        <div>🔗 动态链接 / Dynamic Linking</div>
+                        <div>↩️ 返回地址 / Return Address</div>
+                    </div>
+                </div>
+
+                <div class="stack-frame" style="animation-delay: 0.2s;">
+                    <strong style="color: #64ffda;">栈帧 2: method_g()</strong>
+                    <div style="margin-top: 10px;">
+                        <div>📦 局部变量表 / Local Variables</div>
+                        <div>🔢 操作数栈 / Operand Stack</div>
+                        <div>🔗 动态链接 / Dynamic Linking</div>
+                        <div>↩️ 返回地址 / Return Address</div>
+                    </div>
+                </div>
+
+                <div class="stack-frame" style="animation-delay: 0.4s;">
+                    <strong style="color: #64ffda;">栈帧 1: method_f()</strong>
+                    <div style="margin-top: 10px;">
+                        <div>📦 局部变量表 / Local Variables</div>
+                        <div>🔢 操作数栈 / Operand Stack</div>
+                        <div>🔗 动态链接 / Dynamic Linking</div>
+                        <div>↩️ 返回地址 / Return Address</div>
+                    </div>
+                </div>
+
+                <div class="stack-frame" style="animation-delay: 0.6s;">
+                    <strong style="color: #64ffda;">栈帧 0: main()</strong>
+                    <div style="margin-top: 10px;">
+                        <div>📦 局部变量表 / Local Variables</div>
+                        <div>🔢 操作数栈 / Operand Stack</div>
+                        <div>🔗 动态链接 / Dynamic Linking</div>
+                        <div>↩️ 返回地址 / Return Address</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 107, 107, 0.1); border: 2px solid #ff6b6b; border-radius: 10px;">
+                <strong style="color: #ff6b6b;">⚠️ StackOverflowError</strong>
+                <p style="margin-top: 10px;">递归调用过深或方法调用链过长时触发</p>
+            </div>
+        </div>
+
+        <!-- Scene 3: 对象创建流程 -->
+        <div class="scene" id="scene3">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">对象创建的五步 / Object Creation Lifecycle</h2>
+
+            <div class="object-creation">
+                <div class="step" style="animation-delay: 0s;">
+                    <div style="font-size: 2em;">1️⃣</div>
+                    <strong>类加载检查</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Class Loading Check</p>
+                </div>
+
+                <div class="step" style="animation-delay: 0.3s;">
+                    <div style="font-size: 2em;">2️⃣</div>
+                    <strong>分配内存</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Allocate Memory</p>
+                    <p style="font-size: 0.8em; margin-top: 5px; color: #8892b0;">指针碰撞 / 空闲列表</p>
+                </div>
+
+                <div class="step" style="animation-delay: 0.6s;">
+                    <div style="font-size: 2em;">3️⃣</div>
+                    <strong>内存清零</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Zero Memory</p>
+                </div>
+
+                <div class="step" style="animation-delay: 0.9s;">
+                    <div style="font-size: 2em;">4️⃣</div>
+                    <strong>设置对象头</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Set Object Header</p>
+                    <p style="font-size: 0.8em; margin-top: 5px; color: #8892b0;">Klass / Hash / GC 标记</p>
+                </div>
+
+                <div class="step" style="animation-delay: 1.2s;">
+                    <div style="font-size: 2em;">5️⃣</div>
+                    <strong>执行 init</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Execute &lt;init&gt;</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center; font-size: 1.2em;">
+                <p style="color: #64ffda;">✅ 对象创建完成，引用返回到栈帧局部变量表</p>
+            </div>
+        </div>
+
+        <!-- Scene 4: GC 可达性分析 -->
+        <div class="scene" id="scene4">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">GC 可达性分析 / Reachability Analysis</h2>
+            <p class="info-text">从 GC Roots 出发，通过引用链判断对象是否存活：</p>
+
+            <div style="margin-top: 30px; background: rgba(100, 255, 218, 0.05); padding: 30px; border-radius: 10px; border: 2px solid #64ffda;">
+                <h3 style="color: #64ffda; margin-bottom: 20px;">GC Roots 包括：</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="padding: 15px; background: rgba(100, 255, 218, 0.1); border-radius: 8px;">
+                        <strong>🔸 栈帧局部变量</strong>
+                        <p style="font-size: 0.9em; margin-top: 5px;">Stack Locals</p>
+                    </div>
+                    <div style="padding: 15px; background: rgba(100, 255, 218, 0.1); border-radius: 8px;">
+                        <strong>🔸 方法区静态字段</strong>
+                        <p style="font-size: 0.9em; margin-top: 5px;">Static Fields</p>
+                    </div>
+                    <div style="padding: 15px; background: rgba(100, 255, 218, 0.1); border-radius: 8px;">
+                        <strong>🔸 方法区常量</strong>
+                        <p style="font-size: 0.9em; margin-top: 5px;">Constants</p>
+                    </div>
+                    <div style="padding: 15px; background: rgba(100, 255, 218, 0.1); border-radius: 8px;">
+                        <strong>🔸 本地方法引用</strong>
+                        <p style="font-size: 0.9em; margin-top: 5px;">JNI References</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <div style="display: inline-flex; gap: 30px; align-items: center;">
+                    <div>
+                        <div class="object alive" style="width: 60px; height: 60px; display: inline-block;"></div>
+                        <p style="margin-top: 10px;">可达对象 / Reachable</p>
+                    </div>
+                    <div style="font-size: 2em; color: #64ffda;">⚡</div>
+                    <div>
+                        <div class="object dead" style="width: 60px; height: 60px; display: inline-block;"></div>
+                        <p style="margin-top: 10px;">不可达对象 / Unreachable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5: 回收算法对比 -->
+        <div class="scene" id="scene5">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">回收算法对比 / GC Algorithms</h2>
+
+            <div class="gc-visualization">
+                <div class="gc-algorithm">
+                    <h3 style="color: #64ffda; margin-bottom: 15px;">标记-清除 / Mark-Sweep</h3>
+                    <div style="margin: 20px 0;">
+                        <div class="object alive"></div>
+                        <div class="object dead"></div>
+                        <div class="object alive"></div>
+                        <div class="object dead"></div>
+                        <div class="object alive"></div>
+                    </div>
+                    <p style="color: #8892b0;">优点：简单直接</p>
+                    <p style="color: #8892b0;">缺点：产生碎片</p>
+                </div>
+
+                <div class="gc-algorithm">
+                    <h3 style="color: #64ffda; margin-bottom: 15px;">复制算法 / Copying</h3>
+                    <div style="margin: 20px 0;">
+                        <div style="display: flex; gap: 20px;">
+                            <div style="flex: 1; border: 2px dashed #64ffda; padding: 10px; border-radius: 5px;">
+                                <p style="font-size: 0.9em; margin-bottom: 10px;">From 区</p>
+                                <div class="object alive"></div>
+                                <div class="object dead"></div>
+                            </div>
+                            <div style="font-size: 2em; color: #64ffda;">→</div>
+                            <div style="flex: 1; border: 2px dashed #64ffda; padding: 10px; border-radius: 5px;">
+                                <p style="font-size: 0.9em; margin-bottom: 10px;">To 区</p>
+                                <div class="object alive"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: #8892b0;">优点：无碎片、快速</p>
+                    <p style="color: #8892b0;">缺点：空间浪费</p>
+                </div>
+
+                <div class="gc-algorithm">
+                    <h3 style="color: #64ffda; margin-bottom: 15px;">标记-整理 / Mark-Compact</h3>
+                    <div style="margin: 20px 0;">
+                        <div class="object alive"></div>
+                        <div class="object alive"></div>
+                        <div class="object alive"></div>
+                    </div>
+                    <p style="color: #8892b0;">优点：无碎片、空间利用高</p>
+                    <p style="color: #8892b0;">缺点：移动对象开销大</p>
+                </div>
+
+                <div class="gc-algorithm">
+                    <h3 style="color: #64ffda; margin-bottom: 15px;">分代收集 / Generational</h3>
+                    <div style="margin: 20px 0;">
+                        <div style="border: 2px solid #ffd700; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                            <p style="font-size: 0.9em; color: #ffd700;">新生代: 复制算法</p>
+                        </div>
+                        <div style="border: 2px solid #ff6b6b; padding: 10px; border-radius: 5px;">
+                            <p style="font-size: 0.9em; color: #ff6b6b;">老年代: 标记-整理</p>
+                        </div>
+                    </div>
+                    <p style="color: #8892b0;">优点：针对性优化</p>
+                    <p style="color: #8892b0;">结合各算法优势</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 6: 分代收集 -->
+        <div class="scene" id="scene6">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">分代收集与晋升 / Generational Collection</h2>
+
+            <div class="generation-container">
+                <div class="generation young" style="border-color: #ffd700;">
+                    <h3 style="color: #ffd700; margin-bottom: 15px;">新生代 / Young Generation</h3>
+                    <div style="display: grid; grid-template-columns: 4fr 1fr 1fr; gap: 10px;">
+                        <div style="border: 2px dashed #ffd700; padding: 15px; border-radius: 8px;">
+                            <strong>Eden 区</strong>
+                            <p style="font-size: 0.9em; margin-top: 5px;">新对象分配区域</p>
+                            <div style="margin-top: 10px;">
+                                <div class="object" style="background: #ffd700;"></div>
+                                <div class="object" style="background: #ffd700;"></div>
+                                <div class="object" style="background: #ffd700;"></div>
+                            </div>
+                        </div>
+                        <div style="border: 2px dashed #ffd700; padding: 15px; border-radius: 8px;">
+                            <strong>S0</strong>
+                            <p style="font-size: 0.9em; margin-top: 5px;">Survivor</p>
+                            <div style="margin-top: 10px;">
+                                <div class="object" style="background: #ffd700;"></div>
+                            </div>
+                        </div>
+                        <div style="border: 2px dashed #ffd700; padding: 15px; border-radius: 8px;">
+                            <strong>S1</strong>
+                            <p style="font-size: 0.9em; margin-top: 5px;">Survivor</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #8892b0;">✨ Minor GC：复制算法，快速回收</p>
+                </div>
+
+                <div style="text-align: center; font-size: 2em; color: #64ffda; margin: 20px 0;">⬇️ 晋升 / Promotion ⬇️</div>
+
+                <div class="generation old" style="border-color: #ff6b6b;">
+                    <h3 style="color: #ff6b6b; margin-bottom: 15px;">老年代 / Old Generation</h3>
+                    <div style="border: 2px dashed #ff6b6b; padding: 20px; border-radius: 8px;">
+                        <p style="margin-bottom: 15px;">长期存活对象（年龄 ≥ 15）或大对象直接进入</p>
+                        <div>
+                            <div class="object" style="background: #ff6b6b;"></div>
+                            <div class="object" style="background: #ff6b6b;"></div>
+                            <div class="object" style="background: #ff6b6b;"></div>
+                            <div class="object" style="background: #ff6b6b;"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #8892b0;">🔥 Major/Full GC：标记-整理，暂停时间长</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(100, 255, 218, 0.1); border: 2px solid #64ffda; border-radius: 10px;">
+                <h4 style="color: #64ffda; margin-bottom: 10px;">晋升条件：</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin: 8px 0;">✓ 对象年龄达到晋升阈值（默认 15）</li>
+                    <li style="margin: 8px 0;">✓ 大对象直接分配到老年代</li>
+                    <li style="margin: 8px 0;">✓ Survivor 区空间不足</li>
+                    <li style="margin: 8px 0;">✓ 动态年龄判定</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 7: 典型 OOM -->
+        <div class="scene" id="scene7">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">典型 OOM 场景 / OutOfMemoryError</h2>
+
+            <div class="oom-card">
+                <h3 style="color: #ff6b6b; margin-bottom: 10px;">⚠️ Java Heap Space</h3>
+                <p style="margin: 10px 0;"><strong>触发条件：</strong>堆内存不足，无法分配新对象</p>
+                <p style="margin: 10px 0;"><strong>常见原因：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>内存泄漏（对象无法回收）</li>
+                    <li>大对象持续分配</li>
+                    <li>缓存膨胀</li>
+                    <li>堆大小设置过小</li>
+                </ul>
+            </div>
+
+            <div class="oom-card" style="animation-delay: 0.3s;">
+                <h3 style="color: #ff6b6b; margin-bottom: 10px;">⚠️ GC Overhead Limit Exceeded</h3>
+                <p style="margin: 10px 0;"><strong>触发条件：</strong>98% 的时间用于 GC，但只回收不到 2% 的堆</p>
+                <p style="margin: 10px 0;"><strong>常见原因：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>堆空间几乎耗尽</li>
+                    <li>频繁 Full GC 但效果甚微</li>
+                    <li>存在内存泄漏</li>
+                </ul>
+            </div>
+
+            <div class="oom-card" style="animation-delay: 0.6s;">
+                <h3 style="color: #ff6b6b; margin-bottom: 10px;">⚠️ Metaspace / PermGen Space</h3>
+                <p style="margin: 10px 0;"><strong>触发条件：</strong>方法区/元空间内存不足</p>
+                <p style="margin: 10px 0;"><strong>常见原因：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>动态生成大量类（如 CGLib、动态代理）</li>
+                    <li>加载大量第三方库</li>
+                    <li>类加载器泄漏</li>
+                    <li>元空间大小限制过小</li>
+                </ul>
+            </div>
+
+            <div class="oom-card" style="animation-delay: 0.9s;">
+                <h3 style="color: #ff6b6b; margin-bottom: 10px;">⚠️ Direct Buffer Memory</h3>
+                <p style="margin: 10px 0;"><strong>触发条件：</strong>NIO 直接内存（堆外内存）不足</p>
+                <p style="margin: 10px 0;"><strong>常见原因：</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>大量使用 DirectByteBuffer</li>
+                    <li>NIO/Netty 使用不当</li>
+                    <li>直接内存未及时释放</li>
+                    <li>-XX:MaxDirectMemorySize 设置过小</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 8: 定位思路 -->
+        <div class="scene" id="scene8">
+            <h2 style="color: #64ffda; margin-bottom: 20px;">OOM 定位思路 / Troubleshooting</h2>
+
+            <div class="flow-diagram">
+                <div class="flow-node">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🚨</div>
+                    <strong>OOM 告警</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Alert</p>
+                </div>
+                <div class="arrow">→</div>
+
+                <div class="flow-node">
+                    <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
+                    <strong>基础画像</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Profile</p>
+                    <p style="font-size: 0.85em; color: #8892b0; margin-top: 5px;">堆大小/GC次数/晋升速率</p>
+                </div>
+                <div class="arrow">→</div>
+
+                <div class="flow-node">
+                    <div style="font-size: 2em; margin-bottom: 10px;">💾</div>
+                    <strong>采样/转储</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Dump</p>
+                    <p style="font-size: 0.85em; color: #8892b0; margin-top: 5px;">jmap/JFR/Heap Dump</p>
+                </div>
+                <div class="arrow">→</div>
+
+                <div class="flow-node">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🔍</div>
+                    <strong>分析热点</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Analyze</p>
+                    <p style="font-size: 0.85em; color: #8892b0; margin-top: 5px;">大对象/类加载/泄漏点</p>
+                </div>
+                <div class="arrow">→</div>
+
+                <div class="flow-node">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🔧</div>
+                    <strong>修复策略</strong>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Fix</p>
+                    <p style="font-size: 0.85em; color: #8892b0; margin-top: 5px;">限流/池化/参数调优</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="color: #64ffda; margin-bottom: 20px;">常用工具与命令：</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #64ffda;">
+                        <strong style="color: #64ffda;">监控工具</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>jstat - GC 统计信息</li>
+                            <li>jmap - 堆转储</li>
+                            <li>jstack - 线程快照</li>
+                            <li>JConsole / VisualVM</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #64ffda;">
+                        <strong style="color: #64ffda;">分析工具</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>MAT - 内存分析</li>
+                            <li>JProfiler</li>
+                            <li>Arthas - 在线诊断</li>
+                            <li>GC 日志分析工具</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #64ffda;">
+                        <strong style="color: #64ffda;">JVM 参数</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>-Xms / -Xmx - 堆大小</li>
+                            <li>-XX:MaxMetaspaceSize</li>
+                            <li>-XX:MaxDirectMemorySize</li>
+                            <li>-XX:+HeapDumpOnOutOfMemoryError</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(100, 255, 218, 0.1); border: 2px solid #64ffda; border-radius: 10px;">
+                <h4 style="color: #64ffda; margin-bottom: 15px;">🎯 定位关键点：</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>✓ 找出内存占用最大的对象</div>
+                    <div>✓ 分析对象引用链</div>
+                    <div>✓ 查看 GC 日志模式</div>
+                    <div>✓ 监控内存增长趋势</div>
+                    <div>✓ 检查类加载器泄漏</div>
+                    <div>✓ 验证直接内存使用</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-box" style="background: rgba(100, 255, 218, 0.3); border-color: #64ffda;"></div>
+            <span>线程私有 / Thread-Private</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box" style="background: rgba(107, 203, 255, 0.3); border-color: #6bcbff;"></div>
+            <span>线程共享 / Shared</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box" style="background: rgba(255, 107, 107, 0.3); border-color: #ff6b6b;"></div>
+            <span>异常状态 / Error</span>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(100, 255, 218, 0.05); border-radius: 10px;">
+        <h3 style="color: #64ffda; margin-bottom: 15px;">第2章核心回顾 / Chapter 2 Recap</h3>
+        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <p style="margin: 10px 0; font-size: 1.1em;">✓ 运行时数据区：理解线程私有与共享区域的职责边界</p>
+            <p style="margin: 10px 0; font-size: 1.1em;">✓ 对象生命周期：从创建、可达性分析到回收的完整流程</p>
+            <p style="margin: 10px 0; font-size: 1.1em;">✓ GC 策略：分代收集结合不同算法，平衡吞吐与暂停</p>
+            <p style="margin: 10px 0; font-size: 1.1em;">✓ OOM 定位：从告警到画像、转储、分析、修复的完整链路</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showScene(sceneNumber) {
+        // 隐藏所有场景
+        const scenes = document.querySelectorAll('.scene');
+        scenes.forEach(scene => scene.classList.remove('active'));
+
+        // 显示选中的场景
+        const targetScene = document.getElementById('scene' + sceneNumber);
+        if (targetScene) {
+            targetScene.classList.add('active');
+        }
+
+        // 更新按钮状态
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach((btn, index) => {
+            if (index + 1 === sceneNumber) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    // 添加键盘快捷键支持
+    document.addEventListener('keydown', function(e) {
+        const currentScene = document.querySelector('.scene.active');
+        const sceneId = currentScene ? parseInt(currentScene.id.replace('scene', '')) : 1;
+
+        if (e.key === 'ArrowRight' && sceneId < 8) {
+            showScene(sceneId + 1);
+        } else if (e.key === 'ArrowLeft' && sceneId > 1) {
+            showScene(sceneId - 1);
+        }
+    });
+
+    // 添加对象动画效果
+    setInterval(() => {
+        const objects = document.querySelectorAll('.object.alive');
+        objects.forEach(obj => {
+            const randomDelay = Math.random() * 2;
+            obj.style.animationDelay = randomDelay + 's';
+        });
+    }, 3000);
+</script>
+</body>
+</html>
