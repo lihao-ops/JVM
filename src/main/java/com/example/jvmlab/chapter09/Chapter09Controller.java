@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
-import java.lang.reflect.ReflectiveOperationException;
 /**
  * 第9章：类加载及执行子系统案例与实战。
  * <p>
@@ -51,10 +51,13 @@ public class Chapter09Controller {
      * @return 动态类执行结果。
      * @throws InstantiationException 构造异常。
      * @throws IllegalAccessException 访问异常。
+     * @throws NoSuchMethodException 构造方法不存在异常。
+     * @throws InvocationTargetException 反射调用异常。
      */
     @GetMapping("/bytebuddy-impl")
     public String byteBuddy(@RequestParam(defaultValue = "bytebuddy") String message)
-            throws ReflectiveOperationException {
+            throws InstantiationException, IllegalAccessException, NoSuchMethodException,
+            InvocationTargetException {
         log.info("使用ByteBuddy生成类 Generating class via ByteBuddy, message={}", message);
         Class<? extends SampleService> clazz = AsmDynamicClassBuilder.createConstantImplementation(
                 SampleService.class,
