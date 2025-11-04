@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 3. 作为面试准备项目，保持结构清晰、注释详细，帮助学习者迅速定位实验入口。
  * </p>
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.example.jvmlab", "com.example.jvmstress"})
 public class JvmLearningApplication {
 
     /**
