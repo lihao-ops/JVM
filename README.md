@@ -7,6 +7,7 @@
 ## 特性亮点
 
 - ✅ **章节对照**：每个控制器与书中章节一一对应，接口名称即实验主题。
+- ✅ **内存异常作战图**：新增 `memory-exception-lab` 控制器，以大厂面试官视角串联「原理 → 复现 → 排查 → 解决」。
 - ✅ **双语注释**：类、方法、核心代码均附中文+英文说明，降低沟通成本。
 - ✅ **监控完备**：集成Actuator与Prometheus指标，快速观察JVM运行状态。
 - ✅ **实战导向**：提供OOM、GC、类加载、JIT等典型案例，复现真实问题场景。
@@ -54,6 +55,7 @@ java -jar target/jvm-learning-lab-1.0.0.jar
 
 | 章节 | 控制器 | 实验亮点 |
 |------|--------|----------|
+| 面试实战 | `memory-exception-lab` | 7 大 JVM 内存异常一站式指引，支持 Dry-Run 与实测触发 |
 | 第2章 | `chapter02` | 堆/栈/元空间/直接内存 OOM 实验与内存监控 |
 | 第3章 | `chapter03` | 引用类型、对象晋升、空间分配担保、GC统计 |
 | 第4章 | `chapter04` | JVM参数查询、线程快照、监控汇总 |
@@ -65,6 +67,22 @@ java -jar target/jvm-learning-lab-1.0.0.jar
 | 第10章 | `chapter10` | JavaCompiler动态编译演示编译期优化 |
 | 第11章 | `chapter11` | JIT预热循环，体验运行期优化 |
 | 监控 | `monitor` | JVM内存、GC、系统信息一键查看 |
+
+## 内存异常实验中枢速览
+
+`memory-exception-lab` 控制器将面试中高频的 JVM 内存问题抽象为可执行的策略：
+
+| 场景 ID | JVM 区域 | 对应异常 | 亮点 |
+|---------|-----------|----------|------|
+| `stack-overflow` | 线程私有 | `StackOverflowError` | 线程栈深度实时统计，支持 -Xss 压测 |
+| `heap-oom` | 堆 | `OutOfMemoryError: Java heap space` | 支持自定义块大小与节奏，方便对比 GC 行为 |
+| `gc-overhead` | 堆 | `OutOfMemoryError: GC overhead limit exceeded` | 复现 Full GC 风暴，配套 GC 日志分析清单 |
+| `metaspace-oom` | 元空间 | `OutOfMemoryError: Metaspace` | 基于 ASM 动态生类，观察 Class Space 膨胀 |
+| `direct-memory-oom` | 直接内存 | `OutOfMemoryError: Direct buffer memory` | 输出 allocate 次数，指导使用 NMT 排查 |
+| `string-pool-pressure` | 堆 | `OutOfMemoryError: Java heap space` | 高速填充常量池，演示 intern() 误用风险 |
+| `thread-oom` | 本地线程 | `OutOfMemoryError: unable to create new native thread` | 统计线程创建数量并给出 ulimit 调优建议 |
+
+> 所有接口默认 `dryRun=true` 返回操作指引，设置 `dryRun=false` 才会真正触发异常，避免误操作拖垮教学环境。
 
 ## 常用诊断命令
 
