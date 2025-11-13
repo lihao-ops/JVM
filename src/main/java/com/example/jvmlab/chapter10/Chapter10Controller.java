@@ -16,13 +16,17 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * 第10章：早期（编译期）优化实践。
- * <p>
- * 实现思路：
- * 1. 通过JavaCompiler在运行期动态编译源码，观察编译阶段的常量折叠、内联等优化。
- * 2. 将编译结果加载执行，展示即时编译前的字节码优化策略。
- * 3. 为避免复杂性，该示例编译一个简单类，并在日志中解释关键步骤。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第10章控制器，演示编译期优化相关能力（运行期动态编译与加载执行）。
+ * English: Chapter 10 controller demonstrating compile-time optimization via runtime compilation and execution.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：观察常量折叠、内联等优化的效果，理解编译与执行的衔接。
+ * English: Observe effects of constant folding and inlining, understanding the bridge between compilation and execution.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以简单类为载体，降低复杂度并突出关键步骤。
+ * English: Use a simple class to reduce complexity and highlight key steps.
  */
 @Slf4j
 @RestController
@@ -30,11 +34,14 @@ import java.nio.file.Path;
 public class Chapter10Controller {
 
     /**
-     * 动态编译一段Java代码，并执行其中的方法。
+     * 方法说明 / Method Description:
+     * 中文：动态编写、编译并加载执行包含表达式计算的 Java 源码。
+     * English: Dynamically write, compile and load-execute Java source with an expression computation.
      *
-     * @param expression 需要计算的表达式。
-     * @return 运行结果。
-     * @throws Exception 动态编译或执行异常。
+     * 参数 / Parameters:
+     * @param expression 中文：要计算的表达式文本 / English: Expression text to compute
+     * 返回值 / Return: 中文：计算结果字符串 / English: Computation result as string
+     * 异常 / Exceptions: 中文：可能抛出编译与反射执行异常 / English: May throw compilation and reflective execution exceptions
      */
     @GetMapping("/dynamic-compile")
     public String dynamicCompile(@RequestParam(defaultValue = "1+2+3") String expression) throws Exception {
@@ -66,10 +73,14 @@ public class Chapter10Controller {
     }
 
     /**
-     * 生成用于动态编译的Java源码。
+     * 方法说明 / Method Description:
+     * 中文：生成包含静态方法 compute() 的 Java 源码，方法返回表达式计算结果。
+     * English: Generate Java source with a static compute() method returning the expression result.
      *
-     * @param expression 需要计算的表达式。
-     * @return Java源码字符串。
+     * 参数 / Parameters:
+     * @param expression 中文：表达式文本 / English: Expression text
+     * 返回值 / Return: 中文：源码字符串 / English: Source code string
+     * 异常 / Exceptions: 无
      */
     private String generateSource(String expression) {
         return "public class DynamicCalc {\n" +

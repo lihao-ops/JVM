@@ -13,7 +13,17 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * 动态生成 Class 对象占满元空间的实验实现。
+ * 类说明 / Class Description:
+ * 中文：通过 ASM 动态生成大量 Class 并保留引用，消耗 Metaspace 触发 OOM。
+ * English: Dynamically generate many classes via ASM and retain references to consume Metaspace until OOM.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：演示 Class 元数据分配与 ClassLoader 对类卸载的影响。
+ * English: Demonstrate class metadata allocation and class unloading behavior via ClassLoader references.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：使用稳定的类生成器与列表缓存，确保可控地增加元空间占用。
+ * English: Use a stable class builder and list caches to increase Metaspace usage in a controlled way.
  */
 @Component
 public class MetaspaceOomScenario extends AbstractMemoryExceptionScenario {
@@ -64,18 +74,36 @@ public class MetaspaceOomScenario extends AbstractMemoryExceptionScenario {
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：生成指定数量的类并保存，捕获 OOM 或完成后返回指标与建议。
+     * English: Generate the target number of classes, retain them, and return metrics upon OOM or completion.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：classCount 目标生成数量 / English: classCount target number of classes
+     *
+     * 返回值 / Return:
+     * 中文：执行结果与指标 / English: Execution result with metrics
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 OutOfMemoryError / English: May throw OutOfMemoryError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         int target = Math.max(1, parseInt(requestParams, "classCount", 50_000));
         int generated = 0;
         try {
             while (generated < target) {
+                // 中文：生成唯一类名并创建返回常量 toString 的类
+                // English: Generate unique class name and create a class with constant toString
                 String className = "com.example.jvmlab.exceptionlab.dynamic.DynamicClass" +
                         UUID.randomUUID().toString().replace("-", "");
                 Class<?> clazz = AsmDynamicClassBuilder.createConstantToStringClass(
                         getClass().getClassLoader(),
                         className,
                         "metaspace" + generated);
+                // 中文：保存类引用，防止类卸载释放元空间
+                // English: Retain class reference to prevent unloading and releasing Metaspace
                 GENERATED_CLASSES.add(clazz);
                 generated++;
             }

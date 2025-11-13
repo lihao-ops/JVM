@@ -9,13 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 第11章：晚期（运行期）优化实验控制器。
- * <p>
- * 实现思路：
- * 1. 模拟JIT编译的预热与观察阶段，展示HotSpot如何基于热点统计进行优化。
- * 2. 提供简单的吞吐量测试接口，可搭配JFR或async-profiler分析运行期优化效果。
- * 3. 日志使用中英文，强调各步骤的意义和调优指标。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第11章控制器，演示运行期（JIT）优化的预热与观测，提供简单吞吐测试接口。
+ * English: Chapter 11 controller demonstrating runtime (JIT) optimization warmup and observation with simple throughput testing.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：配合 JFR/async-profiler 观察热点与优化效果，评估吞吐与延迟。
+ * English: Use with JFR/async-profiler to observe hotspots and optimization effects, assessing throughput and latency.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以最小计算负载触发 JIT，并输出关键时长指标。
+ * English: Trigger JIT with minimal compute load and output key duration metrics.
  */
 @Slf4j
 @RestController
@@ -23,11 +27,15 @@ import java.util.concurrent.TimeUnit;
 public class Chapter11Controller {
 
     /**
-     * 执行指定次数的热身循环，帮助触发JIT编译。
+     * 方法说明 / Method Description:
+     * 中文：执行指定次数的热身循环以触发 JIT，返回总耗时毫秒数。
+     * English: Run warmup loops to trigger JIT and return total duration in milliseconds.
      *
-     * @param warmup  热身次数。
-     * @param payload 循环中执行的计算量。
-     * @return 总耗时毫秒。
+     * 参数 / Parameters:
+     * @param warmup 中文：热身次数 / English: Number of warmup iterations
+     * @param payload 中文：每次循环的计算量 / English: Compute payload per iteration
+     * 返回值 / Return: 中文：耗时毫秒字符串 / English: Duration in milliseconds as string
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/jit-warmup")
     public String jitWarmup(@RequestParam(defaultValue = "100000") int warmup,
@@ -45,10 +53,14 @@ public class Chapter11Controller {
     }
 
     /**
-     * 模拟业务计算，用于触发JIT优化。
+     * 方法说明 / Method Description:
+     * 中文：模拟业务计算以触发 JIT 优化（整数运算、位运算混合）。
+     * English: Simulate business computation to trigger JIT optimizations (integer arithmetic and bit ops).
      *
-     * @param payload 计算量。
-     * @return 计算结果。
+     * 参数 / Parameters:
+     * @param payload 中文：循环内执行的计算量 / English: Computation payload inside the loop
+     * 返回值 / Return: 中文：累积结果 / English: Accumulated result
+     * 异常 / Exceptions: 无
      */
     private long compute(int payload) {
         long acc = 0;

@@ -13,13 +13,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 第6章：类文件结构学习控制器。
- * <p>
- * 实现思路：
- * 1. 借助ASM读取类文件字节码，解析魔数、常量池、访问标志等核心信息。
- * 2. 通过REST接口传入类名即可查看结构，方便与javap命令输出对比学习。
- * 3. 结合日志说明每个字段含义，强化对ClassFile格式的理解。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第6章控制器，读取并展示类文件结构信息，辅助理解 ClassFile 格式。
+ * English: Chapter 06 controller that reads and displays class file structure to aid understanding of the ClassFile format.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：与 javap 输出对照学习字节码结构、常量池、访问标志等。
+ * English: Learn bytecode structure, constant pool, access flags, etc., by comparing with javap output.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：提供 REST 接口快速查看类结构，搭配日志解释字段含义。
+ * English: Provide a REST endpoint to quickly inspect class structure with logs explaining field meanings.
  */
 @Slf4j
 @RestController
@@ -27,11 +31,18 @@ import java.util.Map;
 public class Chapter06Controller {
 
     /**
-     * 解析指定类的基本结构信息。
+     * 方法说明 / Method Description:
+     * 中文：解析指定类的结构信息（名称、父类、接口、访问标志、常量池大小）。
+     * English: Parse the structure of the specified class (name, super, interfaces, access flags, constant pool size).
      *
-     * @param className 完整类名。
-     * @return 类元数据。
-     * @throws IOException 读取异常。
+     * 参数 / Parameters:
+     * @param className 中文：待解析的完整类名 / English: Fully qualified class name to parse
+     *
+     * 返回值 / Return:
+     * 中文：类结构元数据 Map / English: Class structure metadata map
+     *
+     * 异常 / Exceptions:
+     * 中文：IOException 当读取失败 / English: IOException when reading fails
      */
     @GetMapping("/class-structure")
     public Map<String, Object> parseClass(@RequestParam(defaultValue = "java.lang.String") String className) throws IOException {

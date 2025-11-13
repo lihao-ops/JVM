@@ -17,14 +17,17 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * JVM 错误压力测试控制器。
- * <p>
- * 实现思路：
- * 1. 通过 REST API 暴露常见 JVM 异常触发场景，便于在学习或排查时手动复现。<br>
- * 2. 使用静态集合缓存内存、类、线程引用，防止资源被垃圾回收，从而稳定触发 OOM。<br>
- * 3. 针对堆、直接内存、元空间、GC 开销、线程、虚拟机栈、Native 方法栈等典型问题提供多种触发方式。<br>
- * 4. 每个入口均提供参数化能力和详细注释，帮助使用者理解触发机制和注意事项。<br>
- * </p>
+ * 类说明 / Class Description:
+ * 中文：JVM 错误压力测试控制器，集中暴露堆、直接内存、元空间、GC 开销、线程与栈相关异常的触发入口。
+ * English: JVM error stress test controller exposing triggers for heap, direct memory, metaspace, GC overhead, thread and stack-related exceptions.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：用于学习/排查阶段手动复现异常，并结合监控与工具进行分析。
+ * English: Manually reproduce exceptions during learning/troubleshooting and analyze with monitoring/tools.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以静态缓存与参数化入口稳定触发异常，覆盖常见运行时错误类型，便于全面演练。
+ * English: Use static caches and parameterized entries to reliably trigger common runtime errors for comprehensive drills.
  */
 @RestController
 @RequestMapping("/trigger")

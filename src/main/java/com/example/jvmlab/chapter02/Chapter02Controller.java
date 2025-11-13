@@ -13,13 +13,17 @@ import java.nio.ByteBuffer;
 import java.util.*;
 
 /**
- * 第2章：Java内存区域与内存溢出异常。
- * <p>
- * 实现思路：
- * 1. 提供多个REST接口模拟书中常见的OOM场景，帮助理解堆、栈、方法区、直接内存的行为差异。
- * 2. 通过静态集合持有引用，确保内存不会被回收，从而稳定地复现异常。
- * 3. 使用详细的日志和内存监控工具，辅以中文+英文说明，方便面试或教学时讲解。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第2章控制器，涵盖堆、栈、元空间、直接内存与字符串常量池等 OOM 场景的实验接口。
+ * English: Chapter 02 controller providing experiment endpoints for heap, stack, metaspace, direct memory and string intern pool OOM scenarios.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：用于课堂教学与面试演示，快速复现典型内存问题并配合监控输出进行分析。
+ * English: For teaching and interview demos to quickly reproduce typical memory issues and analyze with monitoring outputs.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：使用静态集合与可配置参数稳定触发异常，搭配监控日志增强可观测性。
+ * English: Use static holders and configurable parameters to reliably trigger exceptions with enhanced observability via logs.
  */
 @Slf4j
 @RestController
@@ -37,12 +41,19 @@ public class Chapter02Controller {
     private int stackDepth = 0;
 
     /**
-     * 触发堆内存溢出（Java heap space）。
+     * 方法说明 / Method Description:
+     * 中文：触发堆内存溢出，通过静态集合持有对象引用，防止 GC 回收。
+     * English: Trigger heap OOM by retaining object references in a static collection to prevent GC reclamation.
      *
-     * @param sizeMB  每次分配对象的大小（MB）。
-     * @param delayMs 每次分配后的休眠时间（毫秒），便于观察。
-     * @return 永远不会返回，预期抛出OutOfMemoryError。
-     * @throws InterruptedException 如果线程被中断。
+     * 参数 / Parameters:
+     * @param sizeMB 中文：每次分配对象的大小（MB） / English: Object allocation size per loop (MB)
+     * @param delayMs 中文：分配后的休眠时间（毫秒） / English: Sleep after each allocation (ms)
+     *
+     * 返回值 / Return:
+     * 中文：无（预期抛出 OOM） / English: None (expected to throw OOM)
+     *
+     * 异常 / Exceptions:
+     * 中文：OutOfMemoryError；可能抛出 InterruptedException / English: OutOfMemoryError; may throw InterruptedException
      */
     @GetMapping("/heap-oom")
     public String heapOOM(@RequestParam(defaultValue = "1") int sizeMB,
@@ -71,9 +82,13 @@ public class Chapter02Controller {
     }
 
     /**
-     * 触发栈溢出（StackOverflowError）。
+     * 方法说明 / Method Description:
+     * 中文：通过无终止条件递归触发 StackOverflowError，并返回捕获时的深度信息。
+     * English: Trigger StackOverflowError via unbounded recursion and return depth information upon capture.
      *
-     * @return 返回栈深度信息。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：栈溢出发生时的深度描述 / English: Depth description at overflow
+     * 异常 / Exceptions: 中文：StackOverflowError / English: StackOverflowError
      */
     @GetMapping("/stack-overflow")
     public String stackOverflow() {
@@ -89,7 +104,13 @@ public class Chapter02Controller {
     }
 
     /**
-     * 递归调用自身，模拟无限深度的调用栈。
+     * 方法说明 / Method Description:
+     * 中文：递归调用自身以快速消耗线程栈，并通过局部变量增加栈帧大小。
+     * English: Recursively call itself to consume thread stack, using locals to enlarge stack frames.
+     *
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 中文：StackOverflowError / English: StackOverflowError
      */
     private void recursiveCall() {
         stackDepth++;
@@ -101,10 +122,14 @@ public class Chapter02Controller {
     }
 
     /**
-     * 通过创建大量线程触发“unable to create new native thread”。
+     * 方法说明 / Method Description:
+     * 中文：通过创建大量非守护线程并保持睡眠，模拟无法创建新线程的错误。
+     * English: Simulate "unable to create new native thread" by creating many non-daemon sleeping threads.
      *
-     * @param maxThreads 期望创建的线程数量。
-     * @return 成功创建的线程数。
+     * 参数 / Parameters:
+     * @param maxThreads 中文：目标创建线程数 / English: Target number of threads to create
+     * 返回值 / Return: 中文：实际创建的线程数 / English: Number of threads created
+     * 异常 / Exceptions: 中文：OutOfMemoryError / English: OutOfMemoryError
      */
     @GetMapping("/thread-oom")
     public String threadOOM(@RequestParam(defaultValue = "10000") int maxThreads) {
@@ -137,10 +162,14 @@ public class Chapter02Controller {
     }
 
     /**
-     * 使用ByteBuddy动态生成类以占用元空间，触发Metaspace OOM。
+     * 方法说明 / Method Description:
+     * 中文：使用 ASM 生成大量类以消耗 Metaspace，触发 OOM。
+     * English: Use ASM to generate many classes consuming Metaspace to trigger OOM.
      *
-     * @param classCount 需要生成的类数量。
-     * @return 成功生成的类数量。
+     * 参数 / Parameters:
+     * @param classCount 中文：目标生成类数量 / English: Target number of classes to generate
+     * 返回值 / Return: 中文：成功生成的类数量描述 / English: Description of generated class count
+     * 异常 / Exceptions: 中文：OutOfMemoryError / English: OutOfMemoryError
      */
     @GetMapping("/metaspace-oom")
     public String metaspaceOOM(@RequestParam(defaultValue = "100000") int classCount) {
@@ -169,9 +198,13 @@ public class Chapter02Controller {
     }
 
     /**
-     * 测试字符串常量池的内存占用行为。
+     * 方法说明 / Method Description:
+     * 中文：测试字符串常量池占用，通过不断调用 intern() 增加常量池内容。
+     * English: Test string pool occupancy by repeatedly calling intern() to grow pool contents.
      *
-     * @return 常量池中加入的字符串数量。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：最终加入的字符串数量描述 / English: Description of total strings added
+     * 异常 / Exceptions: 中文：OutOfMemoryError / English: OutOfMemoryError
      */
     @GetMapping("/string-pool-oom")
     public String stringPoolOOM() {
@@ -193,10 +226,14 @@ public class Chapter02Controller {
     }
 
     /**
-     * 使用堆外内存（DirectByteBuffer）触发直接内存溢出。
+     * 方法说明 / Method Description:
+     * 中文：通过 DirectByteBuffer 分配堆外内存直到 OOM。
+     * English: Allocate off-heap memory via DirectByteBuffer until OOM.
      *
-     * @param sizeMB 每次分配的大小（MB）。
-     * @return 永远不会返回。
+     * 参数 / Parameters:
+     * @param sizeMB 中文：每次分配大小（MB） / English: Allocation size per chunk (MB)
+     * 返回值 / Return: 中文：无（预期 OOM） / English: None (expected OOM)
+     * 异常 / Exceptions: 中文：OutOfMemoryError / English: OutOfMemoryError
      */
     @GetMapping("/direct-memory-oom")
     public String directMemoryOOM(@RequestParam(defaultValue = "1") int sizeMB) {
@@ -218,9 +255,13 @@ public class Chapter02Controller {
     }
 
     /**
-     * 重置所有静态集合，帮助实验结束后释放内存。
+     * 方法说明 / Method Description:
+     * 中文：重置各静态集合并触发 GC，用于清理实验状态与释放内存。
+     * English: Reset static collections and trigger GC to clean experiment state and free memory.
      *
-     * @return 重置结果说明。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：重置结果说明 / English: Reset result message
+     * 异常 / Exceptions: 无
      */
     @PostMapping("/reset")
     public String reset() {
@@ -234,9 +275,13 @@ public class Chapter02Controller {
     }
 
     /**
-     * 获取当前JVM内存使用情况。
+     * 方法说明 / Method Description:
+     * 中文：获取当前 JVM 内存使用情况的结构化数据，用于前端展示。
+     * English: Get structured current JVM memory usage for frontend display.
      *
-     * @return 内存信息Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：内存信息 Map / English: Memory info map
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/memory-info")
     public Map<String, Object> getMemoryInfo() {
