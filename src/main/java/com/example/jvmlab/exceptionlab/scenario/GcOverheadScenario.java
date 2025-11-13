@@ -11,7 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 模拟 GC Overhead Limit Exceeded 的实验实现。
+ * 类说明 / Class Description:
+ * 中文：通过构造高频 GC 且回收效果有限的压力场景，模拟 GC Overhead Limit Exceeded。
+ * English: Simulate GC Overhead Limit Exceeded by creating pressure where GC is frequent but ineffective.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：学习如何从 GC 日志与监控中识别 GC 过度开销问题。
+ * English: Learn to identify excessive GC overhead via logs and monitoring.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：通过 Map 持有大量短生命周期对象或 intern 字符串，压迫堆空间。
+ * English: Use a Map to hold many short-lived or interned strings to pressure the heap.
  */
 @Component
 public class GcOverheadScenario extends AbstractMemoryExceptionScenario {
@@ -60,6 +70,20 @@ public class GcOverheadScenario extends AbstractMemoryExceptionScenario {
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：构造不断增长的 Map，以可选 intern 行为提高 GC 压力，捕获 OOM 后返回指标。
+     * English: Grow a Map continuously with optional intern behavior to increase GC pressure, then return metrics after OOM.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：internStrings 是否调用 intern / English: internStrings whether to intern strings
+     *
+     * 返回值 / Return:
+     * 中文：执行结果与指标 / English: Execution result with metrics
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 OutOfMemoryError / English: May throw OutOfMemoryError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         boolean internStrings = parseBoolean(requestParams, "internStrings", true);
@@ -67,6 +91,8 @@ public class GcOverheadScenario extends AbstractMemoryExceptionScenario {
         int counter = 0;
         try {
             while (true) {
+                // 中文：生成字符串并根据参数决定是否放入常量池
+                // English: Generate a string and decide whether to intern based on parameter
                 String value = "value" + counter;
                 pressureMap.put(counter, internStrings ? value.intern() : value);
                 counter++;

@@ -14,13 +14,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 第8章：虚拟机字节码执行引擎示例。
- * <p>
- * 实现思路：
- * 1. 使用MethodHandle演示字节码层面的动态调用，验证invokedynamic原理。
- * 2. 使用JOL打印对象布局，观察对象头、字段对齐等底层细节。
- * 3. 结合日志解释每一步的执行流程，帮助理解解释执行与即时编译的连接点。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第8章控制器，演示字节码执行引擎相关能力（MethodHandle 动态绑定、对象内存布局）。
+ * English: Chapter 08 controller demonstrating bytecode engine capabilities (MethodHandle dynamic binding, object memory layout).
+ *
+ * 使用场景 / Use Cases:
+ * 中文：学习 invokedynamic 与反射差异、观察对象头与字段对齐等底层细节。
+ * English: Learn differences between invokedynamic and reflection; observe object headers and field alignment.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：通过最小可运行示例直观理解执行引擎的关键点。
+ * English: Use minimal runnable examples to intuitively understand key points of the execution engine.
  */
 @Slf4j
 @RestController
@@ -28,11 +32,14 @@ import java.util.Map;
 public class Chapter08Controller {
 
     /**
-     * 使用MethodHandle调用目标方法，模拟invokedynamic绑定过程。
+     * 方法说明 / Method Description:
+     * 中文：使用 MethodHandle 调用目标静态方法，模拟 invokedynamic 的绑定过程。
+     * English: Invoke a target static method via MethodHandle, simulating invokedynamic binding.
      *
-     * @param message 输入消息。
-     * @return 方法返回值。
-     * @throws Throwable 反射异常。
+     * 参数 / Parameters:
+     * @param message 中文：输入消息 / English: Input message
+     * 返回值 / Return: 中文：方法返回值 / English: Method result
+     * 异常 / Exceptions: 中文：可能抛出反射/查找异常 / English: May throw reflection/lookup errors
      */
     @GetMapping("/method-handle")
     public String methodHandle(@RequestParam(defaultValue = "hello") String message) throws Throwable {
@@ -46,9 +53,13 @@ public class Chapter08Controller {
     }
 
     /**
-     * 打印指定对象的内存布局。
+     * 方法说明 / Method Description:
+     * 中文：打印示例对象的内存布局，若缺少 JOL 依赖则给出提示。
+     * English: Print the sample object's memory layout or advise to add JOL dependency if missing.
      *
-     * @return 布局信息。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：布局信息 Map / English: Layout info map
+     * 异常 / Exceptions: 中文：可能抛出反射异常 / English: May throw reflection errors
      */
     @GetMapping("/object-layout")
     public Map<String, String> objectLayout() {

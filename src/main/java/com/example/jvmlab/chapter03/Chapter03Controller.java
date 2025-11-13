@@ -15,13 +15,17 @@ import java.lang.ref.WeakReference;
 import java.util.*;
 
 /**
- * 第3章：垃圾收集器与内存分配策略实验控制器。
- * <p>
- * 实现思路：
- * 1. 为书中每个核心概念设计实验接口，如引用类型、对象晋升、空间分配担保等。
- * 2. 使用详细日志输出中文+英文说明，引导学习者理解GC日志与行为之间的关联。
- * 3. 支持手动触发GC和查询统计数据，便于面试现场演示和复盘。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第3章控制器，围绕垃圾收集器与内存分配策略设计实验接口，涵盖引用类型、对象晋升与分配担保等主题。
+ * English: Chapter 03 controller with experiment endpoints for GC and memory allocation strategies, covering reference types, object tenuring, and allocation guarantees.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：用于学习 GC 日志与行为的关联、课堂演示与面试复盘。
+ * English: For learning the relation between GC logs and behavior, classroom demos, and interview retrospectives.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：通过参数化接口与详尽日志，帮助理解不同 GC 场景的触发与诊断方法。
+ * English: Provide parameterized endpoints and detailed logs to understand triggers and diagnostics across GC scenarios.
  */
 @Slf4j
 @RestController
@@ -29,9 +33,13 @@ import java.util.*;
 public class Chapter03Controller {
 
     /**
-     * 通过相互引用模拟引用计数算法的缺陷，验证可达性分析的优势。
+     * 方法说明 / Method Description:
+     * 中文：通过对象相互引用模拟引用计数无法回收的缺陷，验证可达性分析的优势。
+     * English: Simulate the deficiency of reference counting via mutual references and validate reachability analysis advantages.
      *
-     * @return 测试完成提示。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：测试完成提示 / English: Test completion notice
+     * 异常 / Exceptions: 中文：可能抛出 InterruptedException（线程等待） / English: May throw InterruptedException during wait
      */
     @GetMapping("/circular-reference")
     public String testCircularReference() {
@@ -244,9 +252,13 @@ public class Chapter03Controller {
     }
 
     /**
-     * 查询GC统计信息。
+     * 方法说明 / Method Description:
+     * 中文：查询所有垃圾回收器统计信息，包含次数、耗时与关联内存池。
+     * English: Query statistics of all garbage collectors including counts, times and related memory pools.
      *
-     * @return GC信息Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：GC 信息 Map / English: GC info map
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/gc-stats")
     public Map<String, Map<String, Object>> getGCStats() {

@@ -12,13 +12,17 @@ import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
 /**
- * 第9章：类加载及执行子系统案例与实战。
- * <p>
- * 实现思路：
- * 1. 演示JDK动态代理与ByteBuddy生成类的差异，理解类加载与字节码增强。
- * 2. 通过接口调用展示自定义ClassLoader如何隔离业务模块。
- * 3. 所有输出附带中英文解释，方便对比不同增强技术的适用场景。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第9章控制器，演示类加载与执行子系统中的 JDK 动态代理与 ASM 生成类对比。
+ * English: Chapter 09 controller demonstrating JDK dynamic proxies and ASM-generated classes in the class loading/execution subsystem.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：理解代理与字节码增强的适用场景与差异，观察加载器隔离效果。
+ * English: Understand use cases and differences between proxies and bytecode enhancement, and loader isolation effects.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以最小示例呈现关键原理，便于课堂与面试演示。
+ * English: Present key principles in minimal examples for class/interview demos.
  */
 @Slf4j
 @RestController
@@ -26,10 +30,14 @@ import java.lang.reflect.Proxy;
 public class Chapter09Controller {
 
     /**
-     * 使用JDK动态代理包装目标接口。
+     * 方法说明 / Method Description:
+     * 中文：使用 JDK 动态代理包装接口调用，追加前后日志以观察调用流程。
+     * English: Wrap interface calls with JDK dynamic proxy, adding pre/post logs to observe invocation flow.
      *
-     * @param message 消息。
-     * @return 代理执行结果。
+     * 参数 / Parameters:
+     * @param message 中文：输入消息 / English: Input message
+     * 返回值 / Return: 中文：代理返回结果 / English: Proxy execution result
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/jdk-proxy")
     public String jdkProxy(@RequestParam(defaultValue = "proxy") String message) {
@@ -45,14 +53,14 @@ public class Chapter09Controller {
     }
 
     /**
-     * 使用ByteBuddy动态生成实现类。
+     * 方法说明 / Method Description:
+     * 中文：使用 ASM 生成接口实现类，验证运行时类生成与调用流程。
+     * English: Use ASM to generate an interface implementation class and validate runtime generation and invocation flow.
      *
-     * @param message 消息。
-     * @return 动态类执行结果。
-     * @throws InstantiationException 构造异常。
-     * @throws IllegalAccessException 访问异常。
-     * @throws NoSuchMethodException 构造方法不存在异常。
-     * @throws InvocationTargetException 反射调用异常。
+     * 参数 / Parameters:
+     * @param message 中文：输入消息 / English: Input message
+     * 返回值 / Return: 中文：动态类执行结果 / English: Result returned by the generated class
+     * 异常 / Exceptions: 中文：可能抛出反射相关异常 / English: May throw reflection-related exceptions
      */
     @GetMapping("/bytebuddy-impl")
     public String byteBuddy(@RequestParam(defaultValue = "bytebuddy") String message)

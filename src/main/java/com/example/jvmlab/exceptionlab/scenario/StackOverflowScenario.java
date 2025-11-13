@@ -10,7 +10,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 递归触发栈溢出的实验实现。
+ * 类说明 / Class Description:
+ * 中文：通过无终止条件递归触发线程栈溢出，采集最大递归深度与线程信息。
+ * English: Triggers stack overflow via unbounded recursion, collecting max depth and thread info.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：演示 -Xss 配置影响与调用栈诊断，教学递归与迭代的差异。
+ * English: Demonstrate impact of -Xss and call stack diagnostics; teach recursion vs iteration.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：使用 ThreadLocal 记录递归深度，保证线程安全且便于复用。
+ * English: Use ThreadLocal to record recursion depth for thread safety and reuse.
  */
 @Component
 public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
@@ -59,10 +69,26 @@ public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：执行递归触发逻辑并在捕获 StackOverflowError 后返回指标。
+     * English: Execute recursive trigger logic and return metrics after capturing StackOverflowError.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：无需特别参数 / English: No special parameters needed
+     *
+     * 返回值 / Return:
+     * 中文：包含深度与线程名的执行结果 / English: Result including depth and thread name
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 StackOverflowError / English: May throw StackOverflowError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         depthHolder.set(0);
         try {
+            // 中文：进入无终止条件递归，持续入栈直至栈空间耗尽
+            // English: Enter unbounded recursion, pushing stack frames until exhaustion
             triggerRecursiveCall();
         } catch (StackOverflowError error) {
             int depth = lastObservedDepth;
@@ -74,6 +100,8 @@ public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
                     metrics,
                     List.of("扩展栈容量或修复递归逻辑"));
         } finally {
+            // 中文：移除 ThreadLocal，避免线程复用导致的污染
+            // English: Remove ThreadLocal to avoid contamination across reused threads
             depthHolder.remove();
         }
         return new ScenarioExecutionResult(getId(), false, false,
@@ -82,16 +110,35 @@ public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
                 List.of("确认 -Xss 是否配置过大"));
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：递归方法，更新最大深度并创建若干局部变量以增加栈帧大小。
+     * English: Recursive method updating max depth and creating locals to enlarge stack frame.
+     *
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 递归至极限时抛出 StackOverflowError
+     */
     private void triggerRecursiveCall() {
         int currentDepth = depthHolder.get() + 1;
+        // 中文：写入当前深度到 ThreadLocal，便于跨方法读取
+        // English: Write current depth into ThreadLocal for cross-method access
         depthHolder.set(currentDepth);
+        // 中文：更新观测到的最大深度
+        // English: Update last observed max depth
         lastObservedDepth = Math.max(lastObservedDepth, currentDepth);
+        // 中文：填充若干局部变量，人工增大栈帧占用
+        // English: Create local variables to artificially increase stack frame size
         long padding1 = currentDepth;
         long padding2 = padding1 * 2;
         long padding3 = padding1 + padding2;
         if (padding3 % 5 == 0) {
+            // 中文：条件分支进一步保持访问，避免被编译器过度优化
+            // English: Conditional branch to prevent excessive compiler optimization
             lastObservedDepth = Math.max(lastObservedDepth, currentDepth);
         }
+        // 中文：尾部继续递归，直到抛出 StackOverflowError
+        // English: Recurse again until StackOverflowError is thrown
         triggerRecursiveCall();
     }
 }

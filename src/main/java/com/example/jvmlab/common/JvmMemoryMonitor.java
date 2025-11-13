@@ -6,28 +6,44 @@ import java.lang.management.*;
 import java.util.*;
 
 /**
- * JVM内存监控工具类。
- * <p>
- * 实现思路：
- * 1. 借助Java自带的ManagementFactory获取堆、非堆、GC、线程等运行数据，帮助定位性能瓶颈。
- * 2. 日志采用中文+英文双语描述，便于团队沟通和面试复盘。
- * 3. 所有方法均提供详细注释，说明如何在排查JVM问题时使用这些指标。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：JVM 内存与运行时监控工具，提供堆/非堆/GC/线程/类加载等指标采集与格式化输出。
+ * English: JVM memory and runtime monitoring utility that collects and formats heap/non-heap/GC/thread/class-loading metrics.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：作为监控接口的数据来源与调试日志工具，用于分析内存压力与 GC 行为。
+ * English: Serves as data source for monitoring endpoints and diagnostic logging for memory pressure and GC behavior.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以静态方法暴露监控能力，确保调用简单与线程安全；返回结构化 Map 便于序列化。
+ * English: Expose monitoring via static methods for simplicity and thread safety; return structured maps for serialization.
  */
 @Slf4j
 public final class JvmMemoryMonitor {
 
     /**
-     * 工具类不需要实例化，私有化构造函数避免被创建。
+     * 方法说明 / Method Description:
+     * 中文：私有构造，禁止实例化工具类。
+     * English: Private constructor to prevent instantiation of utility class.
+     *
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 无
      */
     private JvmMemoryMonitor() {
         throw new IllegalStateException("Utility class");
     }
 
     /**
-     * 打印完整的JVM内存信息快照。
+     * 方法说明 / Method Description:
+     * 中文：打印完整的 JVM 内存快照，包含堆、非堆、GC 与线程信息。
+     * English: Print a full JVM memory snapshot including heap, non-heap, GC and thread info.
      *
-     * @param tag 日志标签，用于区分不同阶段，例如“执行前(Before Execution)”。
+     * 参数 / Parameters:
+     * @param tag 中文：快照标签（如执行前/执行后） / English: Snapshot tag (e.g., before/after execution)
+     *
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 无
      */
     public static void printMemoryInfo(String tag) {
         log.info("==================== JVM内存信息快照 Memory Snapshot: {} ====================", tag);
@@ -95,7 +111,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 打印元空间的专属指标，便于观察动态代理、类加载等行为。
+     * 方法说明 / Method Description:
+     * 中文：打印元空间使用指标，观察动态代理、类加载等行为的影响。
+     * English: Print Metaspace usage metrics to observe impacts of dynamic proxies and class loading.
+     *
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 无
      */
     public static void printMetaspaceInfo() {
         List<MemoryPoolMXBean> memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
@@ -138,9 +160,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 以Map形式返回关键监控数据，便于REST接口直接输出JSON。
+     * 方法说明 / Method Description:
+     * 中文：采集并返回堆/非堆/内存池/GC/线程/类加载的结构化监控数据。
+     * English: Collect and return structured monitoring data for heap/non-heap/pools/GC/threads/class-loading.
      *
-     * @return JVM监控信息Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：监控信息 Map / English: Monitoring info map
+     * 异常 / Exceptions: 无
      */
     public static Map<String, Object> getMemoryInfoMap() {
         Map<String, Object> info = new LinkedHashMap<>();
@@ -195,9 +221,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 获取垃圾回收统计信息，供外部接口调用。
+     * 方法说明 / Method Description:
+     * 中文：返回所有垃圾回收器的统计信息，包括次数、耗时与相关内存池。
+     * English: Return statistics of all garbage collectors including counts, times and related memory pools.
      *
-     * @return GC信息Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：GC 信息 Map / English: GC info map
+     * 异常 / Exceptions: 无
      */
     public static Map<String, Map<String, Object>> getGCStats() {
         Map<String, Map<String, Object>> gcInfo = new LinkedHashMap<>();
@@ -212,10 +242,17 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 将字节数格式化为KB/MB/GB，便于人类阅读。
+     * 方法说明 / Method Description:
+     * 中文：将字节数格式化为 KB/MB/GB，便于阅读。
+     * English: Format bytes into KB/MB/GB for readability.
      *
-     * @param bytes 字节数。
-     * @return 友好的容量描述。
+     * 参数 / Parameters:
+     * @param bytes 中文：字节数 / English: Byte count
+     *
+     * 返回值 / Return:
+     * 中文：可读的容量字符串 / English: Human-readable capacity string
+     *
+     * 异常 / Exceptions: 无
      */
     public static String formatSize(long bytes) {
         if (bytes < 0) {
@@ -234,9 +271,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 获取基础系统信息，用于排查操作系统相关的性能问题。
+     * 方法说明 / Method Description:
+     * 中文：获取基础系统信息（OS/JVM）供性能排查与环境记录。
+     * English: Get basic system info (OS/JVM) for performance diagnosis and environment recording.
      *
-     * @return 系统属性Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：系统属性 Map / English: System properties map
+     * 异常 / Exceptions: 无
      */
     public static Map<String, String> getSystemInfo() {
         Map<String, String> info = new LinkedHashMap<>();
@@ -257,10 +298,14 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 将毫秒时长转换为易读格式。
+     * 方法说明 / Method Description:
+     * 中文：将毫秒时长转换为友好的可读格式字符串。
+     * English: Convert milliseconds into a human-readable duration string.
      *
-     * @param millis 毫秒数。
-     * @return 格式化字符串。
+     * 参数 / Parameters:
+     * @param millis 中文：时长毫秒数 / English: Duration in milliseconds
+     * 返回值 / Return: 中文：格式化时长 / English: Formatted duration string
+     * 异常 / Exceptions: 无
      */
     private static String formatDuration(long millis) {
         long seconds = millis / 1000;
@@ -280,7 +325,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 打印JVM启动参数，辅助排查参数配置问题。
+     * 方法说明 / Method Description:
+     * 中文：打印 JVM 启动参数，辅助排查参数配置问题。
+     * English: Print JVM startup arguments to aid configuration troubleshooting.
+     *
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 无
+     * 异常 / Exceptions: 无
      */
     public static void printJvmArguments() {
         RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
@@ -291,9 +342,13 @@ public final class JvmMemoryMonitor {
     }
 
     /**
-     * 基于堆使用率和GC频率评估内存泄漏风险。
+     * 方法说明 / Method Description:
+     * 中文：基于堆使用率与 GC 指标进行简单泄漏风险评估，返回结构化建议。
+     * English: Perform a simple leak risk assessment based on heap usage and GC metrics, returning structured advice.
      *
-     * @return 风险评估结果。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：风险评估 Map / English: Risk assessment map
+     * 异常 / Exceptions: 无
      */
     public static Map<String, Object> detectMemoryLeakRisk() {
         Map<String, Object> result = new LinkedHashMap<>();

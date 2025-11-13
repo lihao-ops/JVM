@@ -11,7 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 模拟 "unable to create new native thread" 的实验实现。
+ * 类说明 / Class Description:
+ * 中文：不断创建非守护线程并保持睡眠占用资源，模拟“无法创建新本地线程”。
+ * English: Continuously create non-daemon threads that sleep to occupy resources, simulating "unable to create new native thread".
+ *
+ * 使用场景 / Use Cases:
+ * 中文：演示操作系统线程上限与 -Xss 栈大小设置的关系，辅助排查线程泄漏。
+ * English: Demonstrate OS thread limits and -Xss stack size relation, aiding thread leak diagnosis.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以可配置的目标数量与命名前缀创建线程，便于监控与定位。
+ * English: Create threads with configurable target count and name prefix for monitoring and identification.
  */
 @Component
 public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
@@ -57,6 +67,20 @@ public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：按参数创建线程并保持存活，捕获 OOM 后返回创建数量与建议。
+     * English: Create threads per parameter and keep them alive; return counts and advice after OOM.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：maxThreads 目标线程数 / English: maxThreads target thread count
+     *
+     * 返回值 / Return:
+     * 中文：执行结果与指标 / English: Execution result with metrics
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 OutOfMemoryError / English: May throw OutOfMemoryError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         int maxThreads = Math.max(1, parseInt(requestParams, "maxThreads", 5_000));
@@ -64,6 +88,8 @@ public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
         int count = 0;
         try {
             while (count < maxThreads) {
+                // 中文：每个线程休眠以保持栈与本地资源占用
+                // English: Each thread sleeps to keep stack and native resources occupied
                 Thread thread = new Thread(() -> {
                     try {
                         Thread.sleep(Long.MAX_VALUE);
@@ -72,6 +98,8 @@ public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
                     }
                 }, "oom-thread-" + count);
                 thread.setDaemon(false);
+                // 中文：启动线程并保存引用以便统一中断
+                // English: Start thread and retain reference for unified interruption
                 thread.start();
                 startedThreads.add(thread);
                 count++;
@@ -81,6 +109,8 @@ public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
                     Map.of("createdThreads", count),
                     List.of("提高 maxThreads 或调整 ulimit 限制"));
         } catch (OutOfMemoryError error) {
+            // 中文：在异常场景下尽可能中断已创建线程，降低资源占用
+            // English: Interrupt created threads to reduce resource usage upon error
             startedThreads.forEach(Thread::interrupt);
             return new ScenarioExecutionResult(getId(), false, true,
                     "Unable to create new native thread after " + count + " threads",

@@ -13,13 +13,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 第4章：虚拟机性能监控与故障处理工具示例控制器。
- * <p>
- * 实现思路：
- * 1. 使用JDK自带的MBeans模拟jstack、jinfo等工具的核心功能，提供可视化的REST接口。
- * 2. 结合中文+英文日志说明如何定位线程死锁、查看JVM参数，贴近实际运维场景。
- * 3. 为后续章节的监控页面提供数据接口，形成完整的诊断链路。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第4章控制器，演示虚拟机性能监控与故障处理工具的核心功能（参数、线程快照、监控）。
+ * English: Chapter 04 controller demonstrating core tooling features (arguments, thread dump, monitoring) for JVM performance and troubleshooting.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：替代 jinfo、jstack 的部分能力，以 REST 输出用于可视化与教学。
+ * English: Provide REST outputs for capabilities similar to jinfo/jstack for visualization and teaching.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：统一接口返回结构，利于前端展示与后续章节的数据聚合。
+ * English: Unify response structures to aid frontend display and data aggregation for later chapters.
  */
 @Slf4j
 @RestController
@@ -27,9 +31,13 @@ import java.util.Map;
 public class Chapter04Controller {
 
     /**
-     * 获取JVM启动参数信息，模拟jinfo输出。
+     * 方法说明 / Method Description:
+     * 中文：获取 JVM 启动参数与系统属性，模拟 jinfo 输出。
+     * English: Get JVM input arguments and system properties, simulating jinfo output.
      *
-     * @return 启动参数Map。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：启动参数 Map / English: Startup arguments map
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/jvm-arguments")
     public Map<String, Object> getJvmArguments() {
@@ -41,9 +49,13 @@ public class Chapter04Controller {
     }
 
     /**
-     * 获取线程快照信息，模拟jstack。
+     * 方法说明 / Method Description:
+     * 中文：生成线程快照信息，模拟 jstack 功能。
+     * English: Generate thread dump information, simulating jstack.
      *
-     * @return 线程信息。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：线程信息 Map / English: Thread information map
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/thread-dump")
     public Map<String, Object> getThreadDump() {

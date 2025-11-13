@@ -12,7 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 模拟直接内存（堆外内存）溢出的实验实现。
+ * 类说明 / Class Description:
+ * 中文：使用 DirectByteBuffer 持续申请堆外内存并保留引用，触发直接内存 OOM。
+ * English: Continuously allocate off-heap memory via DirectByteBuffer while retaining references to trigger direct memory OOM.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：演示 -XX:MaxDirectMemorySize 对行为的约束及 NMT 分析方法。
+ * English: Demonstrate constraints via -XX:MaxDirectMemorySize and analysis via NMT.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：以列表保存 ByteBuffer 引用，防止 Cleaner 提前释放，稳定复现异常。
+ * English: Store ByteBuffer references to avoid early Cleaner release for stable reproduction.
  */
 @Component
 public class DirectMemoryOomScenario extends AbstractMemoryExceptionScenario {
@@ -60,12 +70,28 @@ public class DirectMemoryOomScenario extends AbstractMemoryExceptionScenario {
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：按块大小分配直接内存，直到抛出 OOM，返回分配次数与块大小。
+     * English: Allocate direct memory blocks until OOM, returning allocation count and block size.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：sizeMb 每块大小参数 / English: sizeMb per-block size parameter
+     *
+     * 返回值 / Return:
+     * 中文：执行结果与指标 / English: Execution result with metrics
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 OutOfMemoryError / English: May throw OutOfMemoryError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         int sizeMb = Math.max(1, parseInt(requestParams, "sizeMb", 1));
         int allocations = 0;
         try {
             while (true) {
+                // 中文：分配指定大小的直接缓冲区并保存引用，避免被回收
+                // English: Allocate a direct buffer of given size and retain reference to avoid reclamation
                 ByteBuffer buffer = ByteBuffer.allocateDirect(sizeMb * 1024 * 1024);
                 DIRECT_BUFFERS.add(buffer);
                 allocations++;

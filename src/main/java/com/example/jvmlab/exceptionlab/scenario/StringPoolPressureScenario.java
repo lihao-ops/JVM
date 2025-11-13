@@ -11,7 +11,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 压测字符串常量池的实验实现（JDK8 之后常量池位于堆中）。
+ * 类说明 / Class Description:
+ * 中文：压力测试字符串常量池（JDK8 之后位于堆中），观察 intern 行为与堆占用。
+ * English: Stress test the string intern pool (on heap since JDK8), observing intern behavior and heap usage.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：评估过度使用 String.intern() 对内存的影响，学习常量池引用链分析。
+ * English: Evaluate impact of excessive String.intern() and learn constant pool reference chain analysis.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：通过批量追加 intern 字符串到静态集合，稳定复现内存压力或 OOM。
+ * English: Append interned strings to a static collection to reliably reproduce memory pressure or OOM.
  */
 @Component
 public class StringPoolPressureScenario extends AbstractMemoryExceptionScenario {
@@ -59,12 +69,28 @@ public class StringPoolPressureScenario extends AbstractMemoryExceptionScenario 
                 .build();
     }
 
+    /**
+     * 方法说明 / Method Description:
+     * 中文：按批次参数生成并 intern 字符串，统计总量并在 OOM 时返回指标。
+     * English: Generate and intern strings per batch, track totals and return metrics upon OOM.
+     *
+     * 参数 / Parameters:
+     * @param requestParams 中文：batch 追加数量、起始下标等参数 / English: batch count, starting index parameters
+     *
+     * 返回值 / Return:
+     * 中文：执行结果与总字符串数量 / English: Result with total string count
+     *
+     * 异常 / Exceptions:
+     * 中文：可能抛出 OutOfMemoryError / English: May throw OutOfMemoryError
+     */
     @Override
     protected ScenarioExecutionResult doExecute(Map<String, Object> requestParams) {
         int batch = Math.max(1, parseInt(requestParams, "batch", 10_000));
         int startIndex = STRING_HOLDER.size();
         try {
             for (int i = 0; i < batch; i++) {
+                // 中文：生成唯一字符串并放入常量池，保留引用避免回收
+                // English: Generate unique string, intern it and retain reference to avoid reclamation
                 String value = (startIndex + i) + "-jvm-lab";
                 STRING_HOLDER.add(value.intern());
             }

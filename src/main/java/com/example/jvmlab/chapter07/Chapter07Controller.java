@@ -10,13 +10,17 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * 第7章：虚拟机类加载机制实验控制器。
- * <p>
- * 实现思路：
- * 1. 覆盖主动引用、被动引用、自定义类加载器、类卸载等知识点，提供REST接口方便演示。
- * 2. 通过日志输出类初始化顺序和类加载器信息，结合中文+英文注释帮助快速理解。
- * 3. 设计多个内部静态类模拟书中案例，辅以自定义ClassLoader的示例实现。
- * </p>
+ * 类说明 / Class Description:
+ * 中文：第7章控制器，围绕类加载机制提供主动/被动引用、自定义类加载器与类卸载的实验接口。
+ * English: Chapter 07 controller providing experiment endpoints for class loading mechanics: active/passive use, custom loaders, and class unloading.
+ *
+ * 使用场景 / Use Cases:
+ * 中文：课堂演示类初始化顺序与加载器层次，验证双亲委派与其打破效果。
+ * English: Demonstrate initialization order, loader hierarchy, parental delegation and breaking it in class.
+ *
+ * 设计目的 / Design Purpose:
+ * 中文：通过小型示例类与自定义 ClassLoader，直观理解加载过程中的关键阶段与行为。
+ * English: Use small sample classes and custom ClassLoader to intuitively understand key phases and behaviors in loading.
  */
 @Slf4j
 @RestController
@@ -37,9 +41,13 @@ public class Chapter07Controller {
     }
 
     /**
-     * 通过访问静态字段触发初始化，并对比常量的被动引用。
+     * 方法说明 / Method Description:
+     * 中文：访问静态字段触发类初始化，并对比常量的被动引用不会初始化类。
+     * English: Access a static field to trigger class initialization and compare with passive constant access which does not initialize.
      *
-     * @return 字段值描述。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：静态字段与常量值描述 / English: Description of field and constant values
+     * 异常 / Exceptions: 无
      */
     @GetMapping("/active-use-static-field")
     public String testActiveUseByStaticField() {
@@ -137,9 +145,13 @@ public class Chapter07Controller {
     }
 
     /**
-     * 使用自定义类加载器加载类。
+     * 方法说明 / Method Description:
+     * 中文：使用自定义类加载器加载指定类并输出加载器信息。
+     * English: Load a specified class via a custom class loader and output loader info.
      *
-     * @return 加载结果描述。
+     * 参数 / Parameters: 无
+     * 返回值 / Return: 中文：加载结果描述 / English: Loading result description
+     * 异常 / Exceptions: 中文：可能抛出 ClassNotFoundException 或反射异常 / English: May throw ClassNotFoundException or reflection errors
      */
     @GetMapping("/custom-classloader")
     public String testCustomClassLoader() {
