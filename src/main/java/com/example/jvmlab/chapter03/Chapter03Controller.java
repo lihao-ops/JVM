@@ -267,6 +267,61 @@ public class Chapter03Controller {
     }
 
     /**
+     * 方法说明 / Method Description:
+     * 中文：演示 TLAB（线程本地分配缓冲）在小对象分配下的效果，返回分配次数与耗时提示。
+     * English: Demonstrate TLAB behavior under small object allocations, returning allocation count and timing hint.
+     *
+     * 章节标注 / Book Correlation:
+     * 中文：第3章 垃圾收集器与分配策略 → TLAB
+     * English: Chapter 3 Garbage Collector & Allocation Strategies → TLAB
+     *
+     * 参数 / Parameters:
+     * @param iterations 中文：分配次数 / English: Allocation iterations
+     * @param sizeBytes 中文：每次分配大小（字节） / English: Per-allocation size in bytes
+     * 返回值 / Return: 中文：提示信息 / English: Hint message
+     * 异常 / Exceptions: 无
+     */
+    @GetMapping("/tlab-demo")
+    public String tlabDemo(@RequestParam(defaultValue = "200000") int iterations,
+                           @RequestParam(defaultValue = "64") int sizeBytes) {
+        log.info("TLAB演示开始 iterations={} sizeBytes={}", iterations, sizeBytes);
+        long start = System.nanoTime();
+        byte[][] holder = new byte[iterations][];
+        for (int i = 0; i < iterations; i++) {
+            holder[i] = new byte[sizeBytes];
+        }
+        long durationMs = (System.nanoTime() - start) / 1_000_000;
+        log.info("【成功】TLAB演示完成 durationMs={} / Success", durationMs);
+        return "TLAB demo completed. durationMs=" + durationMs +
+                ", suggest comparing -XX:+UseTLAB vs -XX:-UseTLAB";
+    }
+
+    /**
+     * 方法说明 / Method Description:
+     * 中文：演示 G1 字符串去重（String Deduplication）策略下的行为，生成大量重复字符串并返回提示。
+     * English: Demonstrate G1 String Deduplication by generating many repeated strings and return hints.
+     *
+     * 章节标注 / Book Correlation:
+     * 中文：第3章 垃圾收集器与分配策略 → G1 与字符串去重
+     * English: Chapter 3 GC & Allocation → G1 String Deduplication
+     *
+     * 参数 / Parameters:
+     * @param count 中文：字符串数量 / English: Number of strings
+     * 返回值 / Return: 中文：提示信息 / English: Hint message
+     * 异常 / Exceptions: 无
+     */
+    @GetMapping("/string-dedup")
+    public String stringDedup(@RequestParam(defaultValue = "500000") int count) {
+        log.info("字符串去重演示开始 count={}", count);
+        List<String> list = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            list.add(("S" + (i % 100)).intern());
+        }
+        log.info("【成功】字符串去重演示完成 size={} / Success", list.size());
+        return "String dedup demo completed. Recommend -XX:+UseG1GC -XX:+UseStringDeduplication";
+    }
+
+    /**
      * 循环引用示例类A。
      */
     @SuppressWarnings("removal")

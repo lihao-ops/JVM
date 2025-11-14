@@ -1,101 +1,137 @@
-# JVM Learning Lab - 深入理解Java虚拟机学习实验室
+# JVM 学习实验室：实验代码与《深入理解 Java 虚拟机（第3版）》章节映射
 
-## 项目简介
+> 说明：本文件逐章列出项目中的类与方法如何对应原书的知识点，给出每个实验的目的与论证结论，便于学习与复盘。路径后附带 `file_path:line_number` 便于快速定位代码。
 
-这是一个基于Spring Boot 3.5.3与JDK 17的教学型项目，通过实战代码验证《深入理解Java虚拟机》中的核心知识点。所有控制器均按照章节划分，提供详细注释与中英日志，方便学习、面试复盘与团队分享。
+## 第2章 运行时数据区与对象内存
+- `Chapter02Controller` 实验入口（堆/栈/线程/元空间/常量池/直接内存）
+  - 堆 OOM：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:47`
+    - 对应：Java 堆（Heap）
+    - 实验目的：通过静态集合持有对象触发 `Java heap space`，观察 heap dump 与引用链
+    - 论证：集合持有与对象生命周期管理是堆 OOM 的常见根因
+  - 栈溢出：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:78`
+    - 对应：线程私有 - 虚拟机栈
+    - 目的：无终止条件递归触发 `StackOverflowError`，观察最大深度与 `-Xss`
+    - 论证：递归终止条件与栈容量直接决定栈溢出风险
+  - 线程资源耗尽：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:109`
+    - 对应：本地线程资源/线程栈
+    - 目的：大量创建非守护线程触发 `unable to create new native thread`
+    - 论证：线程上限受 OS 资源与 `-Xss` 大小共同影响
+  - 元空间 OOM：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:145`
+    - 对应：方法区/元空间（JDK8+）
+    - 目的：动态生成大量类消耗 Metaspace
+    - 论证：ClassLoader/类引用的释放决定元空间回收
+  - 字符串常量池压力：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:176`
+    - 对应：常量池（JDK8 后位于堆）
+    - 目的：`intern()` 增长常量池并与业务对象竞争堆空间
+    - 论证：过度 `intern` 易造成堆压力与 OOM
+  - 直接内存 OOM：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:201`
+    - 对应：直接内存（堆外）
+    - 目的：`ByteBuffer.allocateDirect` 持续分配触发 OOM
+    - 论证：`-XX:MaxDirectMemorySize` 与引用释放影响堆外内存
+  - 状态重置：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:225`
+    - 目的：清理静态集合、触发 GC，便于复实验
+  - 监控查询：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:241`
+    - 对应：与第4章工具联动，输出内存结构化信息
 
-## 特性亮点
+- 异常场景（策略实现）
+  - 堆 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/HeapOomScenario.java:90`
+    - 目的：线程安全集合持有字节块，控制大小与速率
+    - 论证：对象保留链导致堆无法回收
+  - 直接内存 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/DirectMemoryOomScenario.java:88`
+    - 目的：分配 DirectByteBuffer 至 OOM，结合 NMT 分析
+  - 元空间 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/MetaspaceOomScenario.java:92`
+    - 目的：ASM 动态生成类并保留引用至 OOM
+  - 字符串常量池压力：`src/main/java/com/example/jvmlab/exceptionlab/scenario/StringPoolPressureScenario.java:87`
+    - 目的：批量 `intern` 字符串增长常量池
+  - 线程资源耗尽：`src/main/java/com/example/jvmlab/exceptionlab/scenario/ThreadOomScenario.java:85`
+    - 目的：非守护线程保持睡眠，触发线程资源上限
+  - 栈溢出：`src/main/java/com/example/jvmlab/exceptionlab/scenario/StackOverflowScenario.java:87`
+    - 目的：无终止递归触发 `StackOverflowError`
+  - ThreadLocal 泄漏：`src/main/java/com/example/jvmlab/exceptionlab/scenario/ThreadLocalLeakScenario.java:63`
+    - 对应：内存泄漏专题（第2/3章相关讨论）
+    - 目的：ThreadLocal 值被静态集合间接持有导致无法回收
+    - 论证：及时 `ThreadLocal.remove()` 与避免静态持有是关键
 
-- ✅ **章节对照**：每个控制器与书中章节一一对应，接口名称即实验主题。
-- ✅ **内存异常作战图**：新增 `memory-exception-lab` 控制器，以大厂面试官视角串联「原理 → 复现 → 排查 → 解决」。
-- ✅ **双语注释**：类、方法、核心代码均附中文+英文说明，降低沟通成本。
-- ✅ **监控完备**：集成Actuator与Prometheus指标，快速观察JVM运行状态。
-- ✅ **实战导向**：提供OOM、GC、类加载、JIT等典型案例，复现真实问题场景。
+## 第3章 垃圾收集器与内存分配策略
+- 控制器实验
+  - 引用类型：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:71`
+    - 目的：强/软/弱/虚引用的回收特性对比
+  - Eden 分配：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:134`
+    - 目的：小对象在新生代分配与日志观察
+  - 大对象直接进入老年代：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:153`
+  - 年龄晋升：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:168`
+  - 动态年龄判定：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:187`
+  - 分配担保机制：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:206`
+  - 手动触发 GC：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:235`
+  - GC 统计：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:263`
+  - TLAB 演示：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:279`
+    - 目的：小对象分配下的 TLAB 效果与耗时观察，建议对比 `-XX:+/-UseTLAB`
+  - 字符串去重：`src/main/java/com/example/jvmlab/chapter03/Chapter03Controller.java:309`
+    - 目的：G1 下 String Deduplication 效果，建议启用 `-XX:+UseStringDeduplication`
 
-## 快速开始
+- GC Overhead 限制：`src/main/java/com/example/jvmlab/exceptionlab/scenario/GcOverheadScenario.java:88`
+  - 目的：高频 GC 且回收无效，触发 `GC overhead limit exceeded`
+  - 论证：持续高位堆占用与频繁 GC 是该异常的触发基础
 
-```bash
-git clone <repository-url>
-cd jvm-learning-lab
-mvn clean package
-java -jar target/jvm-learning-lab-1.0.0.jar
-```
+## 第4章 监控与故障处理工具
+- JVM 参数：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:35`
+- 线程快照（jstack）：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:48`
+- 监控聚合：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:65`
+- 运行时监控总览：`src/main/java/com/example/jvmlab/monitor/RuntimeMonitorController.java:31`
+- 监控工具：`src/main/java/com/example/jvmlab/common/JvmMemoryMonitor.java:33/145/200/285`
+  - `printMemoryInfo`、`getMemoryInfoMap`、`getGCStats`、`printJvmArguments`
+- 全局异常处理器：`src/main/java/com/example/jvmlab/common/GlobalExceptionHandler.java:1`
+  - 统一错误响应与日志规范，提升可观测性
 
-应用默认运行在 `http://localhost:8080/jvm-lab`，通过章节路径即可访问各实验接口，例如 `http://localhost:8080/jvm-lab/chapter02/heap-oom`。
+## 第5章 虚拟机性能优化实践
+- CPU 热点：`src/main/java/com/example/jvmlab/chapter05/Chapter05Controller.java:33`
+- 内存抖动：`src/main/java/com/example/jvmlab/chapter05/Chapter05Controller.java:52`
 
-## 推荐JVM参数
+## 第6章 类文件结构
+- 类结构解析（ASM）：`src/main/java/com/example/jvmlab/chapter06/Chapter06Controller.java:36`
 
-### 学习/开发环境
+## 第7章 类加载机制
+- 主动引用（new）：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:31`
+- 静态字段触发初始化 vs 常量被动引用：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:45`
+- 静态方法触发初始化：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:59`
+- 子类引用父类字段（被动引用）：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:72`
+- 数组引用不触发初始化：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:85`
+- 准备阶段与初始化阶段：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:98`
+- 初始化顺序：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:111`
+- 类加载器层次：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:123`
+- 自定义类加载器：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:145`
+- 打破双亲委派：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:165`
+- 类卸载演示：`src/main/java/com/example/jvmlab/chapter07/Chapter07Controller.java:187`
 
-```bash
--Xms512m -Xmx512m \
--XX:MaxDirectMemorySize=256m \
--XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=128m \
--Xss256k \
--XX:+PrintGCDetails -XX:+PrintGCDateStamps \
--XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=logs/heapdump.hprof \
--XX:+UseG1GC -XX:+PrintCommandLineFlags
-```
+## 第8章 字节码执行引擎
+- MethodHandle：`src/main/java/com/example/jvmlab/chapter08/Chapter08Controller.java:37`
+- invokedynamic（LambdaMetafactory）：`src/main/java/com/example/jvmlab/chapter08/Chapter08Controller.java:80`
+- 对象内存布局（JOL）：`src/main/java/com/example/jvmlab/chapter08/Chapter08Controller.java:53`
 
-### 压测/生产模拟
+## 第9章 类加载与执行子系统实践
+- JDK 动态代理：`src/main/java/com/example/jvmlab/chapter09/Chapter09Controller.java:34`
+- ASM 动态类生成：`src/main/java/com/example/jvmlab/chapter09/Chapter09Controller.java:57`
+- ASM 工具：`src/main/java/com/example/jvmlab/common/AsmDynamicClassBuilder.java:37/60`
 
-```bash
--Xms4g -Xmx4g \
--XX:MaxDirectMemorySize=2g \
--XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m \
--Xss1m \
--XX:+UseG1GC -XX:MaxGCPauseMillis=200 \
--XX:+ParallelRefProcEnabled \
--XX:+UnlockExperimentalVMOptions \
--XX:+UseCGroupMemoryLimitForHeap \
--Xlog:gc*:file=logs/gc.log:time,uptime:filecount=10,filesize=100m
-```
+## 第10章 编译期优化
+- 运行期动态编译与执行：`src/main/java/com/example/jvmlab/chapter10/Chapter10Controller.java:39`
+- 源码生成：`src/main/java/com/example/jvmlab/chapter10/Chapter10Controller.java:74`
 
-## 章节导航
+## 第11章 运行期优化（JIT）
+- JIT 预热：`src/main/java/com/example/jvmlab/chapter11/Chapter11Controller.java:33`
+- 代码缓存与编译器统计：`src/main/java/com/example/jvmlab/chapter11/Chapter11Controller.java:95`
+- 逃逸分析与标量替换：`src/main/java/com/example/jvmlab/chapter11/Chapter11Controller.java:128`
+- 锁竞争/偏向锁撤销：`src/main/java/com/example/jvmlab/chapter11/Chapter11Controller.java:165`
 
-| 章节 | 控制器 | 实验亮点 |
-|------|--------|----------|
-| 面试实战 | `memory-exception-lab` | 7 大 JVM 内存异常一站式指引，支持 Dry-Run 与实测触发 |
-| 第2章 | `chapter02` | 堆/栈/元空间/直接内存 OOM 实验与内存监控 |
-| 第3章 | `chapter03` | 引用类型、对象晋升、空间分配担保、GC统计 |
-| 第4章 | `chapter04` | JVM参数查询、线程快照、监控汇总 |
-| 第5章 | `chapter05` | CPU热点与内存抖动调优案例 |
-| 第6章 | `chapter06` | ASM解析类结构，理解ClassFile格式 |
-| 第7章 | `chapter07` | 类初始化时机、双亲委派、自定义类加载器 |
-| 第8章 | `chapter08` | MethodHandle 与 JOL 对象布局实验 |
-| 第9章 | `chapter09` | JDK代理与ByteBuddy动态生成类 |
-| 第10章 | `chapter10` | JavaCompiler动态编译演示编译期优化 |
-| 第11章 | `chapter11` | JIT预热循环，体验运行期优化 |
-| 监控 | `monitor` | JVM内存、GC、系统信息一键查看 |
+## 压测与快速触发入口
+- `JvmErrorController` 快速触发各类 OOM/栈/线程异常：`src/main/java/com/example/jvmstress/ctrl/JvmErrorController.java:85/115/147/182/209/225/243/265/291/338/365`
 
-## 内存异常实验中枢速览
+## 使用建议
+- 建议根据章节运行相应接口与测试类的 `main` 方法，观察日志中的“【成功】...”确认信息
+- 结合 JVM 参数进行 A/B 对比：
+  - 堆/常量池：`-Xms/-Xmx`、`-XX:+HeapDumpOnOutOfMemoryError`
+  - 直接内存：`-XX:MaxDirectMemorySize`
+  - GC：`-Xlog:gc*`、`-XX:+UseG1GC -XX:+UseStringDeduplication`
+  - 线程/栈：`-Xss` 与操作系统线程上限（`ulimit -u`）
+  - 运行期优化：`-XX:+/-DoEscapeAnalysis`、代码缓存与 JIT 监控选项
 
-`memory-exception-lab` 控制器将面试中高频的 JVM 内存问题抽象为可执行的策略：
-
-| 场景 ID | JVM 区域 | 对应异常 | 亮点 |
-|---------|-----------|----------|------|
-| `stack-overflow` | 线程私有 | `StackOverflowError` | 线程栈深度实时统计，支持 -Xss 压测 |
-| `heap-oom` | 堆 | `OutOfMemoryError: Java heap space` | 支持自定义块大小与节奏，方便对比 GC 行为 |
-| `gc-overhead` | 堆 | `OutOfMemoryError: GC overhead limit exceeded` | 复现 Full GC 风暴，配套 GC 日志分析清单 |
-| `metaspace-oom` | 元空间 | `OutOfMemoryError: Metaspace` | 基于 ASM 动态生类，观察 Class Space 膨胀 |
-| `direct-memory-oom` | 直接内存 | `OutOfMemoryError: Direct buffer memory` | 输出 allocate 次数，指导使用 NMT 排查 |
-| `string-pool-pressure` | 堆 | `OutOfMemoryError: Java heap space` | 高速填充常量池，演示 intern() 误用风险 |
-| `thread-oom` | 本地线程 | `OutOfMemoryError: unable to create new native thread` | 统计线程创建数量并给出 ulimit 调优建议 |
-
-> 所有接口默认 `dryRun=true` 返回操作指引，设置 `dryRun=false` 才会真正触发异常，避免误操作拖垮教学环境。
-
-## 常用诊断命令
-
-- `jps -l`：查看Java进程列表。
-- `jstat -gc <pid> 1000`：实时观察GC统计。
-- `jmap -dump:live,format=b,file=heapdump.hprof <pid>`：生成堆转储。
-- `jstack <pid>`：打印线程堆栈，定位死锁或CPU热点。
-- `jcmd <pid> VM.flags`：查看JVM启动参数。
-
-## 注意事项
-
-1. 某些实验（如线程爆炸、直接内存OOM）具有较大风险，建议在容器或虚拟机中执行。
-2. 使用前请阅读 `application.yml` 中的JVM参数建议，合理控制资源。
-3. 日志默认输出到控制台和 `logs/jvm-lab.log`，请确保磁盘空间充足。
-
-祝学习顺利，面试成功！

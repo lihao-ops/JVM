@@ -1,18 +1,16 @@
-2025-11-11 15:12:00.061 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 21.0.6 with PID 29508 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
-2025-11-11 15:12:00.066 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-11 15:12:00.067 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
-2025-11-11 15:12:01.010 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
-2025-11-11 15:12:01.024 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
-2025-11-11 15:12:01.025 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-11-11 15:12:01.025 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-11 15:12:01.072 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
-2025-11-11 15:12:01.072 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 959 ms
-2025-11-11 15:12:01.609 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
-2025-11-11 15:12:01.643 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
-2025-11-11 15:12:01.657 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
-2025-11-11 15:12:01.665 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 2.208 seconds (process running for 3.398)
-2025-11-11 15:12:02.248 [RMI TCP Connection(4)-10.100.224.226] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-11 15:12:02.249 [RMI TCP Connection(4)-10.100.224.226] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-11-11 15:12:02.250 [RMI TCP Connection(4)-10.100.224.226] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-11-11 15:34:28.599 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-11 15:34:28.611 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-14 11:32:09.774 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 21.0.6 with PID 15080 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-14 11:32:09.779 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-14 11:32:09.779 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 11:32:10.509 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-14 11:32:10.517 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-14 11:32:10.519 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 11:32:10.519 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-14 11:32:10.554 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-14 11:32:10.554 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 748 ms
+2025-11-14 11:32:11.003 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-14 11:32:11.035 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-14 11:32:11.048 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-14 11:32:11.058 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.714 seconds (process running for 2.236)
+2025-11-14 11:32:11.597 [RMI TCP Connection(1)-10.100.224.229] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-14 11:32:11.598 [RMI TCP Connection(1)-10.100.224.229] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-14 11:32:11.599 [RMI TCP Connection(1)-10.100.224.229] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
