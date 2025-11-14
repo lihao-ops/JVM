@@ -2,6 +2,7 @@ package com.example.jvmstress.ctrl;
 
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
+import com.example.jvmlab.common.ExperimentSafetyGuard;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -88,6 +89,7 @@ public class JvmErrorController {
     @GetMapping("/oom/heap")
     public String heapOom(@RequestParam(name = "mb", defaultValue = "10") int mbPerChunk,
                           @RequestParam(name = "reset", defaultValue = "false") boolean reset) {
+        ExperimentSafetyGuard.assertEnabled();
         if (reset) {
             HEAP_HOLD.clear();
         }
@@ -118,6 +120,7 @@ public class JvmErrorController {
     @GetMapping("/oom/direct")
     public String directOom(@RequestParam(name = "mb", defaultValue = "10") int mbPerChunk,
                             @RequestParam(name = "reset", defaultValue = "false") boolean reset) {
+        ExperimentSafetyGuard.assertEnabled();
         if (reset) {
             DIRECT_HOLD.clear();
         }
@@ -148,6 +151,7 @@ public class JvmErrorController {
      */
     @GetMapping("/oom/metaspace")
     public String metaspaceOom(@RequestParam(name = "count", defaultValue = "100000") int count) {
+        ExperimentSafetyGuard.assertEnabled();
         int created = 0;
         try {
             while (created < count) {
@@ -184,6 +188,7 @@ public class JvmErrorController {
      */
     @GetMapping("/oom/gc-overhead")
     public String gcOverhead(@RequestParam(name = "payload", defaultValue = "100") int payload) {
+        ExperimentSafetyGuard.assertEnabled();
         int index = HOT_MAP.size();
         try {
             while (true) {
@@ -211,6 +216,7 @@ public class JvmErrorController {
      */
     @GetMapping("/oom/array-limit")
     public String arrayLimit(@RequestParam(name = "length", defaultValue = "2147483647") int length) {
+        ExperimentSafetyGuard.assertEnabled();
         int[] array = new int[length];
         return "Allocated int[" + array.length + "]";
     }
@@ -227,6 +233,7 @@ public class JvmErrorController {
      */
     @GetMapping("/stack-overflow")
     public String stackOverflow() {
+        ExperimentSafetyGuard.assertEnabled();
         recurse();
         return "unreachable";
     }
@@ -244,6 +251,7 @@ public class JvmErrorController {
      */
     @GetMapping("/stack-overflow/vm")
     public String vmStackOverflow(@RequestParam(name = "depth", defaultValue = "0") int depth) {
+        ExperimentSafetyGuard.assertEnabled();
         try {
             recursiveVmStack(depth, 0);
         } catch (StackOverflowError error) {
@@ -267,6 +275,7 @@ public class JvmErrorController {
     @GetMapping("/oom/vm-stack")
     public String vmStackOom(@RequestParam(name = "count", defaultValue = "100000") int count,
                              @RequestParam(name = "sleepMs", defaultValue = "600000") long sleepMs) {
+        ExperimentSafetyGuard.assertEnabled();
         try {
             int created = spawnThreads(count, sleepMs, 0L, "vm-stack-thread-");
             return "Spawned VM stack threads: " + created;
@@ -292,6 +301,7 @@ public class JvmErrorController {
      */
     @GetMapping("/stack-overflow/native")
     public String nativeStackOverflow(@RequestParam(name = "stackKb", defaultValue = "64") int stackKb) {
+        ExperimentSafetyGuard.assertEnabled();
         CountDownLatch latch = new CountDownLatch(1);
         AtomicReference<Throwable> holder = new AtomicReference<>();
         Thread thread = new Thread(null, () -> {
@@ -341,6 +351,7 @@ public class JvmErrorController {
     public String nativeStackOom(@RequestParam(name = "count", defaultValue = "1000") int count,
                                  @RequestParam(name = "stackMb", defaultValue = "8") int stackMb,
                                  @RequestParam(name = "sleepMs", defaultValue = "600000") long sleepMs) {
+        ExperimentSafetyGuard.assertEnabled();
         long stackBytes = Math.max(1L, stackMb) * 1024 * 1024;
         try {
             int created = spawnThreads(count, sleepMs, stackBytes, "native-stack-thread-");
@@ -368,6 +379,7 @@ public class JvmErrorController {
     @GetMapping("/oom/native-threads")
     public String nativeThreads(@RequestParam(name = "count", defaultValue = "100000") int count,
                                 @RequestParam(name = "sleepMs", defaultValue = "600000") long sleepMs) {
+        ExperimentSafetyGuard.assertEnabled();
         try {
             int created = spawnThreads(count, sleepMs, 0L, "stress-thread-");
             return "Spawned threads: " + created;

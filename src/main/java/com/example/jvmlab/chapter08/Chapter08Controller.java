@@ -10,8 +10,11 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
+import java.lang.invoke.CallSite;
+import java.lang.invoke.LambdaMetafactory;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * 类说明 / Class Description:
@@ -36,6 +39,10 @@ public class Chapter08Controller {
      * 中文：使用 MethodHandle 调用目标静态方法，模拟 invokedynamic 的绑定过程。
      * English: Invoke a target static method via MethodHandle, simulating invokedynamic binding.
      *
+     * 章节标注 / Book Correlation:
+     * 中文：第8章 字节码执行引擎 → MethodHandle/InvokeDynamic
+     * English: Chapter 8 Bytecode Execution Engine → MethodHandle/InvokeDynamic
+     *
      * 参数 / Parameters:
      * @param message 中文：输入消息 / English: Input message
      * 返回值 / Return: 中文：方法返回值 / English: Method result
@@ -49,6 +56,39 @@ public class Chapter08Controller {
         MethodHandle handle = lookup.findStatic(TargetMethods.class, "echo", type);
         String result = (String) handle.invokeExact(message);
         log.info("MethodHandle执行结果 Result: {}", result);
+        return result;
+    }
+
+    /**
+     * 方法说明 / Method Description:
+     * 中文：使用 LambdaMetafactory 通过 invokedynamic 生成函数式接口绑定，动态调用并返回结果。
+     * English: Use LambdaMetafactory to bind a functional interface via invokedynamic and call dynamically.
+     *
+     * 章节标注 / Book Correlation:
+     * 中文：第8章 字节码执行引擎 → invokedynamic 与 Lambda 表达式实现机制
+     * English: Chapter 8 Bytecode Execution Engine → invokedynamic and lambda implementation
+     *
+     * 参数 / Parameters:
+     * @param message 中文：输入消息 / English: Input message
+     * 返回值 / Return: 中文：方法返回值 / English: Method result
+     * 异常 / Exceptions: 中文：可能抛出反射/查找异常 / English: May throw reflection/lookup errors
+     */
+    @GetMapping("/invoke-dynamic")
+    public String invokeDynamic(@RequestParam(defaultValue = "dyn") String message) throws Throwable {
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        MethodType targetType = MethodType.methodType(String.class, String.class);
+        MethodHandle handle = lookup.findStatic(TargetMethods.class, "echo", targetType);
+        CallSite callSite = LambdaMetafactory.metafactory(
+                lookup,
+                "apply",
+                MethodType.methodType(Function.class),
+                MethodType.methodType(Object.class, Object.class),
+                handle,
+                targetType);
+        @SuppressWarnings("unchecked")
+        Function<String, String> fn = (Function<String, String>) callSite.getTarget().invokeExact();
+        String result = fn.apply(message);
+        log.info("InvokeDynamic执行结果 Result: {}", result);
         return result;
     }
 
