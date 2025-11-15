@@ -1,18 +1,95 @@
-2025-11-14 11:32:09.774 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 21.0.6 with PID 15080 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
-2025-11-14 11:32:09.779 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-14 11:32:09.779 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
-2025-11-14 11:32:10.509 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
-2025-11-14 11:32:10.517 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
-2025-11-14 11:32:10.519 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-11-14 11:32:10.519 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-14 11:32:10.554 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
-2025-11-14 11:32:10.554 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 748 ms
-2025-11-14 11:32:11.003 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
-2025-11-14 11:32:11.035 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
-2025-11-14 11:32:11.048 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
-2025-11-14 11:32:11.058 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.714 seconds (process running for 2.236)
-2025-11-14 11:32:11.597 [RMI TCP Connection(1)-10.100.224.229] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-14 11:32:11.598 [RMI TCP Connection(1)-10.100.224.229] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-11-14 11:32:11.599 [RMI TCP Connection(1)-10.100.224.229] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-2025-11-14 19:22:18.481 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-14 19:22:18.510 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-15 20:31:37.732 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 33396 (started by lihao in E:\project\JVM)
+2025-11-15 20:31:37.736 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:31:37.737 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:31:39.395 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 20:31:39.467 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.192 seconds (process running for 3.159)
+2025-11-15 20:34:30.171 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 21.0.6 with PID 37944 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-15 20:34:30.175 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:34:30.175 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:34:30.972 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-15 20:34:30.982 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-15 20:34:30.982 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-15 20:34:30.982 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-15 20:34:31.047 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-15 20:34:31.047 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 841 ms
+2025-11-15 20:34:31.538 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-15 20:34:31.569 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-15 20:34:31.585 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-15 20:34:31.590 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.842 seconds (process running for 6.138)
+2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-11-15 20:44:49.021 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 32504 (started by lihao in E:\project\JVM)
+2025-11-15 20:44:49.026 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:44:49.026 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:44:50.631 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 20:44:50.698 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.068 seconds (process running for 2.982)
+2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 75 MB
+2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 0 MB
+2025-11-15 20:50:19.353 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-15 20:50:19.368 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-15 20:50:21.836 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 3056 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-15 20:50:21.841 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:50:21.841 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:50:22.586 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-15 20:50:22.596 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-15 20:50:22.596 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-15 20:50:22.596 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-15 20:50:22.632 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-15 20:50:22.632 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 754 ms
+2025-11-15 20:50:23.060 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-15 20:50:23.091 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-15 20:50:23.107 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-15 20:50:23.117 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.763 seconds (process running for 2.524)
+2025-11-15 20:50:23.501 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-15 20:50:23.501 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-15 20:50:23.505 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-11-15 20:53:30.279 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 31196 (started by lihao in E:\project\JVM)
+2025-11-15 20:53:30.279 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:53:30.279 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:53:31.791 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 20:53:31.852 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 1.949 seconds (process running for 2.811)
+2025-11-15 20:53:32.568 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 20:53:32.573 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 75 MB
+2025-11-15 20:53:32.573 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 0 MB
+2025-11-15 20:59:26.142 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 25088 (started by lihao in E:\project\JVM)
+2025-11-15 20:59:26.143 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 20:59:26.144 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 20:59:27.906 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 20:59:28.008 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.278 seconds (process running for 3.191)
+2025-11-15 20:59:28.768 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 20:59:28.770 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
+2025-11-15 20:59:28.770 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
+2025-11-15 21:01:29.997 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 4652 (started by lihao in E:\project\JVM)
+2025-11-15 21:01:29.998 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 21:01:29.999 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 21:01:31.903 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 21:01:32.017 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.423 seconds (process running for 3.326)
+2025-11-15 21:01:32.855 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 21:01:32.856 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
+2025-11-15 21:01:32.857 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
+2025-11-15 21:02:39.568 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 2260 (started by lihao in E:\project\JVM)
+2025-11-15 21:02:39.570 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 21:02:39.570 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 21:02:41.247 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 21:02:41.332 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.183 seconds (process running for 3.082)
+2025-11-15 21:02:42.234 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 21:02:42.235 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
+2025-11-15 21:02:42.235 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
+2025-11-15 21:06:24.571 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 38188 (started by lihao in E:\project\JVM)
+2025-11-15 21:06:24.572 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 21:06:24.572 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 21:06:26.307 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 21:06:26.396 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.236 seconds (process running for 3.146)
+2025-11-15 21:06:27.209 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 21:06:27.210 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
+2025-11-15 21:06:27.211 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
+2025-11-15 21:06:37.128 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 27428 (started by lihao in E:\project\JVM)
+2025-11-15 21:06:37.129 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-15 21:06:37.130 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 21:06:39.032 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2025-11-15 21:06:39.151 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.493 seconds (process running for 3.268)
+2025-11-15 21:06:39.834 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
+2025-11-15 21:06:39.836 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 68 MB
+2025-11-15 21:06:39.836 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
