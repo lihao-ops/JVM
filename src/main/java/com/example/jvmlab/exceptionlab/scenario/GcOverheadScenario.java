@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -23,6 +24,7 @@ import java.util.Map;
  * 中文：通过 Map 持有大量短生命周期对象或 intern 字符串，压迫堆空间。
  * English: Use a Map to hold many short-lived or interned strings to pressure the heap.
  */
+@Slf4j
 @Component
 public class GcOverheadScenario extends AbstractMemoryExceptionScenario {
 
@@ -101,6 +103,9 @@ public class GcOverheadScenario extends AbstractMemoryExceptionScenario {
             Map<String, Object> metrics = Map.of(
                     "entries", counter,
                     "usedIntern", internStrings);
+            // 中文：成功触发 GC Overhead 限制，打印成功确认日志
+            // English: Successfully triggered GC Overhead limit; print success confirmation log
+            log.info("【成功】GC Overhead 触发，entries={}，internStrings={} / Success: GC Overhead triggered", counter, internStrings);
             return new ScenarioExecutionResult(getId(), false, true,
                     "GC overhead limit exceeded after inserting " + counter + " entries",
                     metrics,

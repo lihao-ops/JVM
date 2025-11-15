@@ -5,6 +5,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import java.util.UUID;
  * 中文：使用稳定的类生成器与列表缓存，确保可控地增加元空间占用。
  * English: Use a stable class builder and list caches to increase Metaspace usage in a controlled way.
  */
+@Slf4j
 @Component
 public class MetaspaceOomScenario extends AbstractMemoryExceptionScenario {
 
@@ -112,6 +114,9 @@ public class MetaspaceOomScenario extends AbstractMemoryExceptionScenario {
                     Map.of("generatedClasses", generated),
                     List.of("提高 classCount 或收紧 MaxMetaspaceSize"));
         } catch (OutOfMemoryError error) {
+            // 中文：成功触发 Metaspace OOM，打印成功确认日志
+            // English: Successfully triggered Metaspace OOM; print success confirmation log
+            log.info("【成功】Metaspace OOM 触发，已生成类数量={} / Success: Metaspace OOM triggered", generated);
             return new ScenarioExecutionResult(getId(), false, true,
                     "Metaspace OOM after generating " + generated + " classes",
                     Map.of("generatedClasses", generated),

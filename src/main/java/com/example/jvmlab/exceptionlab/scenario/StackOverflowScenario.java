@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.Map;
  * 中文：使用 ThreadLocal 记录递归深度，保证线程安全且便于复用。
  * English: Use ThreadLocal to record recursion depth for thread safety and reuse.
  */
+@Slf4j
 @Component
 public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
 
@@ -95,6 +97,9 @@ public class StackOverflowScenario extends AbstractMemoryExceptionScenario {
             Map<String, Object> metrics = Map.of(
                     "depth", depth,
                     "thread", Thread.currentThread().getName());
+            // 中文：成功捕获 StackOverflowError，打印成功确认日志
+            // English: Successfully captured StackOverflowError; print success confirmation log
+            log.info("【成功】StackOverflowError 捕获，深度={}，线程={} / Success: captured", depth, Thread.currentThread().getName());
             return new ScenarioExecutionResult(getId(), false, true,
                     "StackOverflowError captured at depth " + depth,
                     metrics,
