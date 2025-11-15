@@ -1,6 +1,7 @@
 package com.example.jvmlab.exceptionlab;
 
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
+import com.example.jvmlab.common.ExperimentSafetyGuard;
 
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,7 @@ public abstract class AbstractMemoryExceptionScenario implements MemoryException
             // English: Return dry-run result with hints for real trigger
             return buildDryRunResult();
         }
+        ExperimentSafetyGuard.assertEnabled();
         // 中文：进入真实执行路径，触发异常场景
         // English: Go into real execution path to trigger scenario
         return doExecute(requestParams);

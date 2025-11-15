@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.Map;
  * 中文：通过批量追加 intern 字符串到静态集合，稳定复现内存压力或 OOM。
  * English: Append interned strings to a static collection to reliably reproduce memory pressure or OOM.
  */
+@Slf4j
 @Component
 public class StringPoolPressureScenario extends AbstractMemoryExceptionScenario {
 
@@ -99,6 +101,9 @@ public class StringPoolPressureScenario extends AbstractMemoryExceptionScenario 
                     Map.of("totalStrings", STRING_HOLDER.size()),
                     List.of("继续调用直至堆溢出，或通过 /chapter02/reset 清理静态集合"));
         } catch (OutOfMemoryError error) {
+            // 中文：成功触发 Heap OOM（字符串常量池压力），打印成功确认日志
+            // English: Successfully triggered Heap OOM due to string pool pressure; print success confirmation log
+            log.info("【成功】String Pool 压力触发 Heap OOM，总字符串={} / Success: String pool OOM triggered", STRING_HOLDER.size());
             return new ScenarioExecutionResult(getId(), false, true,
                     "Heap OOM after adding " + STRING_HOLDER.size() + " interned strings",
                     Map.of("totalStrings", STRING_HOLDER.size()),

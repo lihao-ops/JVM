@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 中文：以线程安全的集合持有分配块，控制分配速度与块大小，稳定复现 OOM。
  * English: Use a thread-safe collection to retain allocation blocks and control speed/size to reliably reproduce OOM.
  */
+@Slf4j
 @Component
 public class HeapOomScenario extends AbstractMemoryExceptionScenario {
 
@@ -107,6 +109,9 @@ public class HeapOomScenario extends AbstractMemoryExceptionScenario {
                 }
             }
         } catch (OutOfMemoryError error) {
+            // 中文：成功触发 Heap OOM，打印成功确认日志
+            // English: Successfully triggered Heap OOM; print success confirmation log
+            log.info("【成功】Heap OOM 触发，分配次数={}，块大小={}MB / Success: Heap OOM triggered", allocationCount, sizeMb);
             // 中文：采集核心指标用于复盘（分配次数、块大小、累计占用）
             // English: Collect key metrics for post-mortem (allocations, block size, total)
             Map<String, Object> metrics = Map.of(

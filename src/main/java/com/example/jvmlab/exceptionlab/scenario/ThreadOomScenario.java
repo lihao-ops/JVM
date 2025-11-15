@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.Map;
  * 中文：以可配置的目标数量与命名前缀创建线程，便于监控与定位。
  * English: Create threads with configurable target count and name prefix for monitoring and identification.
  */
+@Slf4j
 @Component
 public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
 
@@ -112,6 +114,9 @@ public class ThreadOomScenario extends AbstractMemoryExceptionScenario {
             // 中文：在异常场景下尽可能中断已创建线程，降低资源占用
             // English: Interrupt created threads to reduce resource usage upon error
             startedThreads.forEach(Thread::interrupt);
+            // 中文：成功触发 unable to create new native thread，打印成功确认日志
+            // English: Successfully triggered unable to create new native thread; print success confirmation log
+            log.info("【成功】Native Thread OOM 触发，已创建线程数={} / Success: native thread OOM triggered", count);
             return new ScenarioExecutionResult(getId(), false, true,
                     "Unable to create new native thread after " + count + " threads",
                     Map.of("createdThreads", count),

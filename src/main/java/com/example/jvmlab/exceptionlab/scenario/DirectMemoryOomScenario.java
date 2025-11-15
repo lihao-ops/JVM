@@ -4,6 +4,7 @@ import com.example.jvmlab.exceptionlab.AbstractMemoryExceptionScenario;
 import com.example.jvmlab.exceptionlab.model.JvmMemoryArea;
 import com.example.jvmlab.exceptionlab.model.ScenarioExecutionResult;
 import com.example.jvmlab.exceptionlab.model.ScenarioGuide;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.nio.ByteBuffer;
@@ -24,6 +25,7 @@ import java.util.Map;
  * 中文：以列表保存 ByteBuffer 引用，防止 Cleaner 提前释放，稳定复现异常。
  * English: Store ByteBuffer references to avoid early Cleaner release for stable reproduction.
  */
+@Slf4j
 @Component
 public class DirectMemoryOomScenario extends AbstractMemoryExceptionScenario {
 
@@ -97,6 +99,9 @@ public class DirectMemoryOomScenario extends AbstractMemoryExceptionScenario {
                 allocations++;
             }
         } catch (OutOfMemoryError error) {
+            // 中文：成功触发 Direct Memory OOM，打印成功确认日志
+            // English: Successfully triggered Direct Memory OOM; print success confirmation log
+            log.info("【成功】Direct Memory OOM 触发，分配次数={}，块大小={}MB / Success: Direct OOM triggered", allocations, sizeMb);
             return new ScenarioExecutionResult(getId(), false, true,
                     "Direct buffer memory OOM after " + allocations + " allocations",
                     Map.of("allocations", allocations, "blockSizeMb", sizeMb),
