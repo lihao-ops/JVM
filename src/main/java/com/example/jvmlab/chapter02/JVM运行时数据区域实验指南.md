@@ -27,35 +27,53 @@
 ### 1. JVM参数配置
 
 在启动SpringBoot应用前，必须配置以下JVM参数（IDEA配置或命令行启动）：
+```bash
+-Xms512m
+-Xmx512m
+-Xmn256m
+-XX:MetaspaceSize=128m
+-XX:MaxMetaspaceSize=256m
+-Xss512k
+-XX:MaxDirectMemorySize=256m
+-Xlog:gc*,gc+cpu=debug:file=./logs/gc.log:time,uptime,level,tags
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=./dumps
+-XX:+UseG1GC
+```
 
 ```bash
-# 堆内存配置
--Xms512m                                    # 初始堆大小
--Xmx512m                                    # 最大堆大小
--Xmn256m                                    # 新生代大小
 
-# 元空间配置
--XX:MetaspaceSize=128m                      # 初始元空间大小
--XX:MaxMetaspaceSize=256m                   # 最大元空间大小
+# ===================== 堆内存（Heap） =====================
+-Xms512m                     # 初始堆大小（越大越减少扩容停顿）
+-Xmx512m                     # 最大堆大小（与 Xms 相同避免动态扩容）
+-Xmn256m                     # 新生代大小，控制 Young GC 频率（G1 中为建议值）
 
-# 虚拟机栈配置
--Xss512k                                    # 每个线程栈大小
+# ===================== 元空间（Metaspace） =====================
 
-# 直接内存配置
--XX:MaxDirectMemorySize=256m                # 最大直接内存
+-XX:MetaspaceSize=128m       # 初始元空间大小（达到后触发首次 GC）
+-XX:MaxMetaspaceSize=256m    # 最大元空间，避免类加载过多占爆内存
 
-# GC日志配置
--XX:+PrintGCDetails                         # 打印GC详情
--XX:+PrintGCDateStamps                      # 打印GC时间戳
--Xloggc:./logs/gc.log                       # GC日志文件
+# ===================== 线程栈（Stack） =====================
+-Xss512k                     # 每个线程栈大小，大线程池时要留意内存占用
 
-# OOM处理
--XX:+HeapDumpOnOutOfMemoryError             # OOM时自动dump堆
--XX:HeapDumpPath=./dumps                    # dump文件路径
+# ===================== 直接内存（Direct Memory） =====================
+-XX:MaxDirectMemorySize=256m # 最大直接内存（Netty / NIO 堆外内存依赖）
 
-# 垃圾收集器（可选）
--XX:+UseG1GC                                # 使用G1垃圾收集器
+# ===================== GC 日志（JDK 17+ 正确写法） =====================
+# -Xlog 是 JDK9+ 新日志系统，统一覆盖所有 GC 日志打印，
+# “gc*” 打印所有 GC 事件，“gc+cpu” 打印 GC 期间 CPU 信息，
+# 输出到 ./logs/gc.log，追加时间戳、运行时长、日志级别、标签。
+-Xlog:gc*,gc+cpu=debug:file=./logs/gc.log:time,uptime,level,tags
+
+# ===================== OOM 处理 =====================
+-XX:+HeapDumpOnOutOfMemoryError   # OOM 时自动生成 heap dump（排查内存泄漏必备）
+-XX:HeapDumpPath=./dumps          # dump 文件输出路径
+
+# ===================== 垃圾回收器 =====================
+-XX:+UseG1GC                      # 使用 G1 垃圾收集器（JDK17 默认，低延迟）
+
 ```
+
 
 ### 2. 工具准备
 
