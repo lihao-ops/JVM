@@ -1,95 +1,323 @@
-2025-11-15 20:31:37.732 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 33396 (started by lihao in E:\project\JVM)
-2025-11-15 20:31:37.736 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:31:37.737 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:31:39.395 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 20:31:39.467 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.192 seconds (process running for 3.159)
-2025-11-15 20:34:30.171 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 21.0.6 with PID 37944 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
-2025-11-15 20:34:30.175 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:34:30.175 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:34:30.972 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
-2025-11-15 20:34:30.982 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
-2025-11-15 20:34:30.982 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-11-15 20:34:30.982 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-15 20:34:31.047 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
-2025-11-15 20:34:31.047 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 841 ms
-2025-11-15 20:34:31.538 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
-2025-11-15 20:34:31.569 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
-2025-11-15 20:34:31.585 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
-2025-11-15 20:34:31.590 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.842 seconds (process running for 6.138)
-2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-11-15 20:34:32.522 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-2025-11-15 20:44:49.021 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 32504 (started by lihao in E:\project\JVM)
-2025-11-15 20:44:49.026 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:44:49.026 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:44:50.631 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 20:44:50.698 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.068 seconds (process running for 2.982)
-2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 75 MB
-2025-11-15 20:44:51.286 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 0 MB
-2025-11-15 20:50:19.353 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-15 20:50:19.368 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-11-15 20:50:21.836 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 3056 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
-2025-11-15 20:50:21.841 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:50:21.841 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:50:22.586 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
-2025-11-15 20:50:22.596 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
-2025-11-15 20:50:22.596 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-11-15 20:50:22.596 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-15 20:50:22.632 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
-2025-11-15 20:50:22.632 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 754 ms
-2025-11-15 20:50:23.060 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
-2025-11-15 20:50:23.091 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
-2025-11-15 20:50:23.107 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
-2025-11-15 20:50:23.117 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.763 seconds (process running for 2.524)
-2025-11-15 20:50:23.501 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-15 20:50:23.501 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-11-15 20:50:23.505 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
-2025-11-15 20:53:30.279 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 21.0.6 with PID 31196 (started by lihao in E:\project\JVM)
-2025-11-15 20:53:30.279 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:53:30.279 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:53:31.791 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 20:53:31.852 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 1.949 seconds (process running for 2.811)
-2025-11-15 20:53:32.568 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 20:53:32.573 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 75 MB
-2025-11-15 20:53:32.573 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 0 MB
-2025-11-15 20:59:26.142 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 25088 (started by lihao in E:\project\JVM)
-2025-11-15 20:59:26.143 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 20:59:26.144 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 20:59:27.906 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 20:59:28.008 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.278 seconds (process running for 3.191)
-2025-11-15 20:59:28.768 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 20:59:28.770 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
-2025-11-15 20:59:28.770 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
-2025-11-15 21:01:29.997 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 4652 (started by lihao in E:\project\JVM)
-2025-11-15 21:01:29.998 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 21:01:29.999 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 21:01:31.903 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 21:01:32.017 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.423 seconds (process running for 3.326)
-2025-11-15 21:01:32.855 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 21:01:32.856 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
-2025-11-15 21:01:32.857 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
-2025-11-15 21:02:39.568 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 2260 (started by lihao in E:\project\JVM)
-2025-11-15 21:02:39.570 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 21:02:39.570 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 21:02:41.247 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 21:02:41.332 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.183 seconds (process running for 3.082)
-2025-11-15 21:02:42.234 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 21:02:42.235 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
-2025-11-15 21:02:42.235 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
-2025-11-15 21:06:24.571 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 38188 (started by lihao in E:\project\JVM)
-2025-11-15 21:06:24.572 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 21:06:24.572 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 21:06:26.307 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 21:06:26.396 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.236 seconds (process running for 3.146)
-2025-11-15 21:06:27.209 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 21:06:27.210 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 71 MB
-2025-11-15 21:06:27.211 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
-2025-11-15 21:06:37.128 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Starting MetaspaceTest using Java 17.0.12 with PID 27428 (started by lihao in E:\project\JVM)
-2025-11-15 21:06:37.129 [main] DEBUG c.e.jvmlab.chapter02.MetaspaceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-15 21:06:37.130 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - No active profile set, falling back to 1 default profile: "default"
-2025-11-15 21:06:39.032 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2025-11-15 21:06:39.151 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - Started MetaspaceTest in 2.493 seconds (process running for 3.268)
-2025-11-15 21:06:39.834 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 初始元空间大小: 7 MB
-2025-11-15 21:06:39.836 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 已使用: 68 MB
-2025-11-15 21:06:39.836 [main] INFO  c.e.jvmlab.chapter02.MetaspaceTest - 最大值: 480 MB
+2025-11-17 20:56:58.079 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 11076 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 20:56:58.084 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 20:56:58.084 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 20:56:58.823 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 20:56:58.831 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 20:56:58.832 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 20:56:58.832 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 20:56:58.869 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 20:56:58.869 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 756 ms
+2025-11-17 20:56:59.313 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 20:56:59.347 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 20:56:59.359 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 20:56:59.369 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.73 seconds (process running for 2.248)
+2025-11-17 20:56:59.959 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 20:56:59.959 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 20:56:59.960 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-17 20:58:39.544 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 20:58:39.870 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-17 20:58:45.187 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 35148 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 20:58:45.189 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 20:58:45.189 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 20:58:45.841 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 20:58:45.849 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 20:58:45.850 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 20:58:45.850 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 20:58:45.885 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 20:58:45.885 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 669 ms
+2025-11-17 20:58:46.284 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 20:58:46.314 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 20:58:46.327 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 20:58:46.336 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.519 seconds (process running for 1.92)
+2025-11-17 20:58:46.640 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 20:58:46.640 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 20:58:46.641 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-17 21:00:16.594 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 21:00:16.905 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-17 21:00:22.199 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 11376 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 21:00:22.201 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 21:00:22.202 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 21:00:22.831 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 21:00:22.839 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:00:22.839 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 21:00:22.840 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 21:00:22.873 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 21:00:22.873 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 644 ms
+2025-11-17 21:00:23.269 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 21:00:23.299 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:00:23.311 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 21:00:23.321 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.475 seconds (process running for 1.885)
+2025-11-17 21:00:23.654 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 21:00:23.654 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 21:00:23.655 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-17 21:01:04.334 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 21:01:04.636 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-17 21:01:09.975 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 5840 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 21:01:09.976 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 21:01:09.977 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 21:01:10.629 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 21:01:10.637 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:01:10.638 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 21:01:10.638 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 21:01:10.674 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 21:01:10.674 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 671 ms
+2025-11-17 21:01:11.085 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 21:01:11.116 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:01:11.128 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 21:01:11.138 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.524 seconds (process running for 1.913)
+2025-11-17 21:01:11.142 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - ===================== JVM 参数检查开始 =====================
+2025-11-17 21:01:11.143 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - Xms (初始堆大小) = (未配置)
+2025-11-17 21:01:11.143 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - Xmx (最大堆大小) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - Xmn (新生代大小) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MetaspaceSize (初始元空间) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MaxMetaspaceSize (最大元空间) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - Xss (线程栈大小) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MaxDirectMemorySize (最大直接内存) = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - GC 日志 -Xlog = null
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - GC 日志文件路径 = null
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - OOM Dump 开关 = (未配置)
+2025-11-17 21:01:11.144 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - OOM Dump 路径 = (未配置)
+2025-11-17 21:01:11.145 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - 垃圾收集器 GC 类型 = G1 Young Generation, G1 Old Generation
+2025-11-17 21:01:11.145 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - ===================== JVM 参数检查结束 =====================
+2025-11-17 21:01:11.458 [RMI TCP Connection(2)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 21:01:11.459 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 21:01:11.460 [RMI TCP Connection(2)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-17 21:02:38.322 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 21:02:38.663 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-17 21:02:43.981 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 28616 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 21:02:43.982 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 21:02:43.983 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 21:02:44.615 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 21:02:44.623 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:02:44.623 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 21:02:44.624 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 21:02:44.659 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 21:02:44.659 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 652 ms
+2025-11-17 21:02:45.059 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 21:02:45.089 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:02:45.102 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 21:02:45.112 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.493 seconds (process running for 1.903)
+2025-11-17 21:02:45.116 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - ===================== JVM 参数检查开始 =====================
+2025-11-17 21:02:45.117 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - -Xms (初始堆大小) = -Xms512m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - -Xmx (最大堆大小) = -Xmx512m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - -Xmn (新生代大小) = -Xmn256m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - -Xss (线程栈大小) = -Xss512k
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MetaspaceSize (初始元空间大小) = -XX:MetaspaceSize=128m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MaxMetaspaceSize (最大元空间大小) = -XX:MaxMetaspaceSize=256m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - MaxDirectMemorySize (最大直接内存) = -XX:MaxDirectMemorySize=256m
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - -Xlog (GC 日志配置) = -Xlog:gc*,gc+cpu=debug:file=./logs/gc.log:time,uptime,level,tags
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - HeapDumpOnOutOfMemoryError (OOM Dump 开关) = -XX:+HeapDumpOnOutOfMemoryError
+2025-11-17 21:02:45.118 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - HeapDumpPath (OOM Dump 路径) = -XX:HeapDumpPath=./dumps
+2025-11-17 21:02:45.119 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - 垃圾收集器 GC 类型 = G1 Young Generation, G1 Old Generation
+2025-11-17 21:02:45.119 [main] INFO  c.e.jvmlab.config.JvmConfigLogger - ===================== JVM 参数检查结束 =====================
+2025-11-17 21:02:45.435 [RMI TCP Connection(1)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 21:02:45.435 [RMI TCP Connection(1)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 21:02:45.437 [RMI TCP Connection(1)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-11-17 21:05:30.243 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 21:05:30.587 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-17 21:05:35.938 [main] INFO  c.e.jvmlab.JvmLearningApplication - Starting JvmLearningApplication using Java 17.0.12 with PID 29776 (E:\project\JVM\target\classes started by lihao in E:\project\JVM)
+2025-11-17 21:05:35.939 [main] DEBUG c.e.jvmlab.JvmLearningApplication - Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-11-17 21:05:35.940 [main] INFO  c.e.jvmlab.JvmLearningApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-17 21:05:36.572 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 1234 (http)
+2025-11-17 21:05:36.580 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:05:36.581 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-17 21:05:36.581 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-17 21:05:36.616 [main] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring embedded WebApplicationContext
+2025-11-17 21:05:36.617 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 653 ms
+2025-11-17 21:05:37.021 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 15 endpoints beneath base path '/actuator'
+2025-11-17 21:05:37.050 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1234"]
+2025-11-17 21:05:37.064 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 1234 (http) with context path '/jvm-lab'
+2025-11-17 21:05:37.073 [main] INFO  c.e.jvmlab.JvmLearningApplication - Started JvmLearningApplication in 1.5 seconds (process running for 1.932)
+2025-11-17 21:05:37.077 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2025-11-17 21:05:37.077 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2025-11-17 21:05:37.077 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : -Xms512m (-Xms512m)
+2025-11-17 21:05:37.078 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : -Xmx512m (-Xmx512m)
+2025-11-17 21:05:37.078 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : -Xmn256m (-Xmn256m)
+2025-11-17 21:05:37.078 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2025-11-17 21:05:37.078 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : -Xss512k (-Xss512k)
+2025-11-17 21:05:37.078 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : -XX:MetaspaceSize=128m (-XX:MetaspaceSize=128m)
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : -XX:MaxMetaspaceSize=256m (-XX:MaxMetaspaceSize=256m)
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : -XX:MaxDirectMemorySize=256m (-XX:MaxDirectMemorySize=256m)
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = -Xlog:gc*,gc+cpu=debug:file=./logs/gc.log:time,uptime,level,tags
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : -XX:+HeapDumpOnOutOfMemoryError (-XX:+HeapDumpOnOutOfMemoryError)
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : -XX:HeapDumpPath=./dumps (-XX:HeapDumpPath=./dumps)
+2025-11-17 21:05:37.079 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 512 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 225 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 512 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 512 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 2 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 57 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 57 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 512 MB
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2025-11-17 21:05:37.080 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 26
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 22
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 26
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 30
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2025-11-17 21:05:37.081 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2025-11-17 21:05:37.379 [RMI TCP Connection(4)-192.168.168.135] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-17 21:05:37.379 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-17 21:05:37.379 [RMI TCP Connection(4)-192.168.168.135] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-11-17 21:11:22.771 [http-nio-1234-exec-2] WARN  c.e.j.common.GlobalExceptionHandler - 全局异常 Exception: No static resource chapter02/memory-info.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource chapter02/memory-info.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-11-17 21:11:29.891 [http-nio-1234-exec-3] WARN  c.e.j.common.GlobalExceptionHandler - 全局异常 Exception: No static resource chapter02/memory-info.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource chapter02/memory-info.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:114)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-11-17 21:12:26.787 [http-nio-1234-exec-5] INFO  c.e.j.c.JvmRuntimeDataAreaController - 访问JVM实验平台首页
+2025-11-17 21:14:51.760 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 开始获取所有内存区域状态 ============
+2025-11-17 21:14:51.760 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取堆内存详细信息 ============
+2025-11-17 21:14:51.762 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存信息获取完成
+2025-11-17 21:14:51.762 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存状态已收集
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取元空间详细信息 ============
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间信息获取完成
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间状态已收集
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 线程信息已收集
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - GC信息已收集
+2025-11-17 21:14:51.763 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 直接内存信息已收集
+2025-11-17 21:14:51.764 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - 系统信息已收集
+2025-11-17 21:14:51.764 [http-nio-1234-exec-7] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 内存状态收集完成 ============
+2025-11-17 21:20:09.379 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 开始获取所有内存区域状态 ============
+2025-11-17 21:20:09.379 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取堆内存详细信息 ============
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存信息获取完成
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存状态已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取元空间详细信息 ============
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间信息获取完成
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间状态已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 线程信息已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - GC信息已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 直接内存信息已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - 系统信息已收集
+2025-11-17 21:20:09.380 [http-nio-1234-exec-9] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 内存状态收集完成 ============
+2025-11-17 21:21:21.286 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 开始获取所有内存区域状态 ============
+2025-11-17 21:21:21.287 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取堆内存详细信息 ============
+2025-11-17 21:21:21.287 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存信息获取完成
+2025-11-17 21:21:21.287 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 堆内存状态已收集
+2025-11-17 21:21:21.287 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 获取元空间详细信息 ============
+2025-11-17 21:21:21.287 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间信息获取完成
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 元空间状态已收集
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 线程信息已收集
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - GC信息已收集
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 直接内存信息已收集
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - 系统信息已收集
+2025-11-17 21:21:21.288 [http-nio-1234-exec-2] INFO  c.e.j.c.JvmRuntimeDataAreaController - ============ 内存状态收集完成 ============
+2025-11-17 21:41:55.362 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-17 21:41:55.692 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
