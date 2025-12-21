@@ -33,7 +33,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @RestController
 @RequestMapping("/trigger")
 public class JvmErrorController {
-
     /**
      * 实现思路：
      * 1. 使用静态集合保存堆内存分配，避免引用被回收。<br>
