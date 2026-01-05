@@ -2,6 +2,17 @@
 
 > 说明：本文件逐章列出项目中的类与方法如何对应原书的知识点，给出每个实验的目的与论证结论，便于学习与复盘。路径后附带 `file_path:line_number` 便于快速定位代码。
 
+## 第1章 走近 Java
+- `Chapter01Controller` 概念演示（JDK/JRE/JVM、混合模式）
+  - JDK/JRE/JVM 关系：`src/main/java/com/example/jvmlab/chapter01/Chapter01Controller.java:28`
+    - 目的：通过比喻（厨房理论）清晰区分三者概念
+    - 论证：生产环境排查问题通常需要 JDK 工具，仅运行则 JRE 足矣
+  - 混合模式（Mixed Mode）：`src/main/java/com/example/jvmlab/chapter01/Chapter01Controller.java:48`
+    - 目的：展示 HotSpot 虚拟机默认的运行模式（解释器 + JIT）
+    - 论证：解释器保证启动响应，JIT 保证热点代码执行效率
+  - 热点代码触发：`src/main/java/com/example/jvmlab/chapter01/Chapter01Controller.java:68`
+    - 目的：模拟热点代码执行，配合 `-XX:+PrintCompilation` 可观察 JIT 编译行为
+
 ## 第2章 运行时数据区与对象内存
 - `Chapter02Controller` 实验入口（堆/栈/线程/元空间/常量池/直接内存）
   - 堆 OOM：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:47`
