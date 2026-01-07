@@ -12,6 +12,10 @@
     - 论证：解释器保证启动响应，JIT 保证热点代码执行效率
   - 热点代码触发：`src/main/java/com/example/jvmlab/chapter01/Chapter01Controller.java:68`
     - 目的：模拟热点代码执行，配合 `-XX:+PrintCompilation` 可观察 JIT 编译行为
+- `JitPerformanceTest` 性能对比实战
+  - 解释器 vs JIT：`src/main/java/com/example/jvmlab/chapter01/JitPerformanceTest.java`
+    - 目的：通过 CPU 密集型任务，直观对比纯解释模式 (-Xint) 与混合模式的性能差异
+    - 实验方法：在 IDEA 中分别配置 VM 参数 `-Xint` 和 `-XX:+PrintCompilation` 运行
 
 ## 第2章 运行时数据区与对象内存
 - `Chapter02Controller` 实验入口（堆/栈/线程/元空间/常量池/直接内存）
