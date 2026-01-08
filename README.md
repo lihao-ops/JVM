@@ -47,6 +47,10 @@
     - 目的：清理静态集合、触发 GC，便于复实验
   - 监控查询：`src/main/java/com/example/jvmlab/chapter02/Chapter02Controller.java:241`
     - 对应：与第4章工具联动，输出内存结构化信息
+- `ProgramCounterTest` 程序计数器实战
+  - 模拟上下文切换：`src/main/java/com/example/jvmlab/chapter02/ProgramCounterTest.java`
+    - 目的：通过 Debugger 模拟线程切换，结合 javap 观察 PC 寄存器（字节码行号）的变化
+    - 实验方法：运行 `view_bytecode_pc.bat` 获取字节码，然后在 IDEA 中 Debug 并切换线程
 
 - 异常场景（策略实现）
   - 堆 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/HeapOomScenario.java:90`

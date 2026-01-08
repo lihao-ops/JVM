@@ -69,3 +69,5 @@
 2026-01-07 20:50:11.045 [RMI TCP Connection(1)-192.168.168.55] INFO  o.a.c.c.C.[.[localhost].[/jvm-lab] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-01-07 20:50:11.046 [RMI TCP Connection(1)-192.168.168.55] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2026-01-07 20:50:11.047 [RMI TCP Connection(1)-192.168.168.55] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-01-07 21:58:33.457 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-07 21:58:33.466 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete

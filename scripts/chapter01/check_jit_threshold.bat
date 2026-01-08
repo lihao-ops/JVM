@@ -5,8 +5,6 @@ echo ========================================================
 echo.
 
 :: 查询 CompileThreshold 参数
-:: -XX:+PrintFlagsFinal 会打印 JVM 所有参数的最终值
-:: findstr 用于过滤出我们需要的那一行
 java -XX:+PrintFlagsFinal -version | findstr CompileThreshold
 
 echo.
