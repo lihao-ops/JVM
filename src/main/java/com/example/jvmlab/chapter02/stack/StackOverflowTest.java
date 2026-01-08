@@ -1,5 +1,7 @@
 package com.example.jvmlab.chapter02.stack;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 第二章实战：虚拟机栈 - StackOverflowError 演示
  * <p>
@@ -18,6 +20,7 @@ package com.example.jvmlab.chapter02.stack;
  * 【VM 参数建议】
  * -Xss160k (减小栈容量，让错误更快发生)
  */
+@Slf4j
 public class StackOverflowTest {
 
     private int stackLength = 1;
@@ -33,11 +36,11 @@ public class StackOverflowTest {
         try {
             test.stackLeak();
         } catch (Throwable e) {
-            System.out.println("--------------------------------------------------");
-            System.out.println("【实验结果】发生栈溢出！");
-            System.out.println("当前栈深度: " + test.stackLength);
-            System.out.println("异常类型: " + e.getClass().getName());
-            System.out.println("--------------------------------------------------");
+            log.error("--------------------------------------------------");
+            log.error("【实验结果】发生栈溢出！");
+            log.error("当前栈深度: {}", test.stackLength);
+            log.error("异常类型: {}", e.getClass().getName());
+            log.error("--------------------------------------------------");
             // e.printStackTrace(); // 堆栈太长，建议注释掉，否则控制台刷屏
         }
     }

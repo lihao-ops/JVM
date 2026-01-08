@@ -51,6 +51,14 @@
   - 模拟上下文切换：`src/main/java/com/example/jvmlab/chapter02/ProgramCounterTest.java`
     - 目的：通过 Debugger 模拟线程切换，结合 javap 观察 PC 寄存器（字节码行号）的变化
     - 实验方法：运行 `view_bytecode_pc.bat` 获取字节码，然后在 IDEA 中 Debug 并切换线程
+- `StackOverflowTest` 栈溢出实战
+  - 递归导致 SOF：`src/main/java/com/example/jvmlab/chapter02/stack/StackOverflowTest.java`
+    - 目的：演示无限递归如何撑爆虚拟机栈
+    - 实验方法：运行 `scripts/chapter02/run_sof_test.bat` (参数 -Xss160k)
+- `ThreadOomTest` 线程耗尽实战
+  - 多线程导致 OOM：`src/main/java/com/example/jvmlab/chapter02/stack/ThreadOomTest.java`
+    - 目的：演示创建过多线程导致操作系统内存耗尽 (unable to create new native thread)
+    - 实验方法：运行 `scripts/chapter02/run_thread_oom_test.bat` (参数 -Xss2M)
 
 - 异常场景（策略实现）
   - 堆 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/HeapOomScenario.java:90`
