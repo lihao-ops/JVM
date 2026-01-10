@@ -214,3 +214,1207 @@
 2026-01-10 19:59:50.826 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 1, 返回上一层...
 2026-01-10 19:59:56.937 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 实验结束，请查看控制台日志或 IDE 调试器
 2026-01-10 19:59:57.744 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：递归逻辑执行正常 ===
+2026-01-10 20:00:02.495 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 24020 (started by lihao in E:\project\JVM)
+2026-01-10 20:00:02.495 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 20:00:02.496 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 20:00:04.694 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 20:00:04.786 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.711 seconds (process running for 3.543)
+2026-01-10 20:00:04.868 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 20:00:04.869 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 20:00:04.870 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.872 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.872 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.872 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 20:00:04.872 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.872 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 20:00:04.873 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.873 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 20:00:04.873 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 20:00:04.873 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 20:00:04.873 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 20:00:04.874 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 20:00:04.874 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 20:00:04.875 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 20:00:04.875 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 20:00:04.875 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 20:00:04.876 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 20:00:04.876 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 112 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 20:00:04.877 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 20:00:04.878 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 20:00:04.879 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 20:00:05.656 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 debugStack 方法 ===
+2026-01-10 20:00:05.657 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始栈帧 Debug 实验，目标深度: 3
+2026-01-10 20:06:52.312 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 1, 准备进入下一层栈帧...
+2026-01-10 20:07:06.012 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 2, 准备进入下一层栈帧...
+2026-01-10 20:07:07.709 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 3, 准备进入下一层栈帧...
+2026-01-10 20:07:08.072 [main] WARN  c.e.j.c.r.vmstack.StackLabService - === 达到预设深度 limit: 3，准备开始回溯（出栈） ===
+2026-01-10 20:07:09.025 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 3, 返回上一层...
+2026-01-10 20:07:09.587 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 2, 返回上一层...
+2026-01-10 20:07:10.128 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 1, 返回上一层...
+2026-01-10 20:07:10.129 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 实验结束，请查看控制台日志或 IDE 调试器
+2026-01-10 20:07:10.133 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：递归逻辑执行正常 ===
+2026-01-10 20:09:09.004 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 12220 (started by lihao in E:\project\JVM)
+2026-01-10 20:09:09.005 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 20:09:09.005 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 20:09:11.246 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 20:09:11.328 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.738 seconds (process running for 3.555)
+2026-01-10 20:09:11.417 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 20:09:11.418 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 20:09:11.419 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : -Xss160k (-Xss160k)
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 20:09:11.421 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 20:09:11.422 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 20:09:11.423 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 20:09:11.423 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 20:09:11.423 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 20:09:11.423 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 20:09:11.423 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 20:09:11.424 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 20:09:11.424 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 20:09:11.425 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 20:09:11.426 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 20:09:12.201 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 debugStack 方法 ===
+2026-01-10 20:09:14.952 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始栈帧 Debug 实验，目标深度: 3
+2026-01-10 20:09:39.699 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 1, 准备进入下一层栈帧...
+2026-01-10 20:09:46.121 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 2, 准备进入下一层栈帧...
+2026-01-10 20:09:51.772 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 3, 准备进入下一层栈帧...
+2026-01-10 20:10:12.436 [main] WARN  c.e.j.c.r.vmstack.StackLabService - === 达到预设深度 limit: 3，准备开始回溯（出栈） ===
+2026-01-10 20:10:13.051 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 3, 返回上一层...
+2026-01-10 20:10:15.155 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 2, 返回上一层...
+2026-01-10 20:55:57.298 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 1, 返回上一层...
+2026-01-10 20:55:59.249 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 实验结束，请查看控制台日志或 IDE 调试器
+2026-01-10 20:55:59.987 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：递归逻辑执行正常 ===
+2026-01-10 21:14:26.999 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 21392 (started by lihao in E:\project\JVM)
+2026-01-10 21:14:27.000 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:14:27.001 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:14:29.362 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:14:29.480 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.941 seconds (process running for 4.142)
+2026-01-10 21:14:29.587 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:14:29.587 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:14:29.588 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:14:29.591 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.592 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:14:29.592 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:14:29.592 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:14:29.592 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:14:29.593 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:14:29.593 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:14:29.593 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:14:29.593 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:14:29.594 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:14:29.595 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:14:29.595 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:14:29.596 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:14:29.598 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:14:30.385 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 triggerOverflow 方法 ===
+2026-01-10 21:14:30.385 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始 StackOverflowError 触发实验...
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 1000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 2000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 3000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 4000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 5000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 6000
+2026-01-10 21:14:30.386 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 7000
+2026-01-10 21:14:30.387 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 8000
+2026-01-10 21:14:30.387 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 9000
+2026-01-10 21:14:30.387 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 10000
+2026-01-10 21:14:30.387 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 11000
+2026-01-10 21:14:30.387 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 12000
+2026-01-10 21:14:30.427 [main] ERROR c.e.j.c.r.vmstack.StackLabController - 成功捕获栈溢出异常！StackOverflowError 发生，最终深度: 12046
+2026-01-10 21:14:30.428 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 成功捕获栈溢出异常！最终深度: 12046
+2026-01-10 21:14:30.436 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：成功捕获 StackOverflowError ===
+2026-01-10 21:19:12.131 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 27400 (started by lihao in E:\project\JVM)
+2026-01-10 21:19:12.132 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:19:12.133 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:19:14.499 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:19:14.601 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.918 seconds (process running for 3.739)
+2026-01-10 21:19:14.683 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:19:14.683 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:19:14.684 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.686 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:19:14.687 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:19:14.688 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:19:14.688 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:19:14.688 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:19:14.688 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:19:14.688 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:19:14.690 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:19:14.691 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:19:14.692 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:19:15.401 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 triggerOverflow 方法 ===
+2026-01-10 21:19:15.401 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始 StackOverflowError 触发实验...
+2026-01-10 21:19:15.402 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 1000
+2026-01-10 21:19:15.402 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 2000
+2026-01-10 21:19:15.402 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 3000
+2026-01-10 21:19:15.402 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 4000
+2026-01-10 21:19:15.402 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 当前递归深度: 5000
+2026-01-10 21:19:15.428 [main] ERROR c.e.j.c.r.vmstack.StackLabController - 成功捕获栈溢出异常！StackOverflowError 发生，最终深度: 5523
+2026-01-10 21:19:15.429 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 成功捕获栈溢出异常！最终深度: 5523
+2026-01-10 21:19:15.430 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：成功捕获 StackOverflowError ===
+2026-01-10 21:25:05.102 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 22120 (started by lihao in E:\project\JVM)
+2026-01-10 21:25:05.103 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:25:05.103 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:25:07.354 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:25:07.477 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.819 seconds (process running for 3.73)
+2026-01-10 21:25:07.569 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:25:07.570 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:25:07.573 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.577 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.578 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.578 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:25:07.578 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.578 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:25:07.578 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.579 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:25:07.579 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:25:07.579 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:25:07.579 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:25:07.580 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:25:07.580 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:25:07.581 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:25:07.581 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:25:07.582 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:25:07.582 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:25:07.583 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:25:07.584 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:25:07.585 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:25:07.586 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:25:08.152 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 debugStack 方法 ===
+2026-01-10 21:25:08.152 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始栈帧 Debug 实验，目标深度: 3
+2026-01-10 21:25:08.152 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 1, 准备进入下一层栈帧...
+2026-01-10 21:25:08.152 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 2, 准备进入下一层栈帧...
+2026-01-10 21:25:08.153 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >>> [入栈 Push] 当前深度: 3, 准备进入下一层栈帧...
+2026-01-10 21:25:08.153 [main] WARN  c.e.j.c.r.vmstack.StackLabService - === 达到预设深度 limit: 3，准备开始回溯（出栈） ===
+2026-01-10 21:25:08.153 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 3, 返回上一层...
+2026-01-10 21:25:08.153 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 2, 返回上一层...
+2026-01-10 21:25:08.153 [main] INFO  c.e.j.c.r.vmstack.StackLabService - <<< [出栈 Pop] 离开深度: 1, 返回上一层...
+2026-01-10 21:25:08.153 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 实验结束，请查看控制台日志或 IDE 调试器
+2026-01-10 21:25:08.154 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：递归逻辑执行正常 ===
+2026-01-10 21:42:00.992 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 21860 (started by lihao in E:\project\JVM)
+2026-01-10 21:42:00.993 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:42:00.994 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:42:03.629 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:42:03.751 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 3.279 seconds (process running for 4.22)
+2026-01-10 21:42:03.851 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:42:03.852 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:42:03.853 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.856 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.856 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:42:03.857 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:42:03.858 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:42:03.859 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:42:03.859 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:42:03.859 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:42:03.860 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:42:03.862 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:42:03.862 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:42:03.862 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:42:03.863 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:42:03.864 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:42:03.864 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:42:03.864 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:42:03.864 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:42:03.865 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:42:03.865 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:42:03.865 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:42:03.865 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:42:03.866 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:42:04.634 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 triggerBloatedOverflow (臃肿栈帧) 方法 ===
+2026-01-10 21:42:04.634 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始 StackOverflowError (臃肿栈帧) 触发实验...
+2026-01-10 21:42:04.634 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:42:04.635 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:42:04.636 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1900
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2000
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2100
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2200
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2300
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2400
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2500
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2600
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2700
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2800
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2900
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3000
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3100
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3200
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3300
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3400
+2026-01-10 21:42:04.637 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3500
+2026-01-10 21:42:04.638 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3600
+2026-01-10 21:42:04.638 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3700
+2026-01-10 21:42:04.669 [main] ERROR c.e.j.c.r.vmstack.StackLabController - 成功捕获栈溢出异常(臃肿模式)！最终深度: 3800
+2026-01-10 21:42:04.670 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 成功捕获栈溢出异常(臃肿模式)！最终深度: 3800
+2026-01-10 21:42:04.671 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：成功捕获 StackOverflowError (臃肿模式) ===
+2026-01-10 21:42:09.817 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Starting StackLabControllerTest using Java 17.0.12 with PID 22900 (started by lihao in E:\project\JVM)
+2026-01-10 21:42:09.817 [main] DEBUG c.e.j.c.r.v.StackLabControllerTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:42:09.818 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:42:12.163 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:42:12.281 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - Started StackLabControllerTest in 2.936 seconds (process running for 3.886)
+2026-01-10 21:42:12.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:42:12.387 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:42:12.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:42:12.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:42:12.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:42:12.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:42:12.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:42:12.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:42:12.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:42:12.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:42:12.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:42:12.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:42:12.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:42:12.394 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:42:12.394 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:42:12.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:42:12.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:42:12.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:42:12.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:42:12.396 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:42:12.397 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:42:13.156 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 开始测试 triggerBloatedOverflow (臃肿栈帧) 方法 ===
+2026-01-10 21:42:13.156 [main] INFO  c.e.j.c.r.vmstack.StackLabController - 开始 StackOverflowError (臃肿栈帧) 触发实验...
+2026-01-10 21:43:53.688 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:43:53.689 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:43:53.690 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:43:53.690 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:43:53.690 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:43:53.690 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:43:53.691 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:43:53.691 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:43:53.691 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:43:53.692 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:43:53.829 [main] ERROR c.e.j.c.r.vmstack.StackLabController - 成功捕获栈溢出异常(臃肿模式)！最终深度: 1073
+2026-01-10 21:43:53.830 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - 执行结果: 成功捕获栈溢出异常(臃肿模式)！最终深度: 1073
+2026-01-10 21:43:53.832 [main] INFO  c.e.j.c.r.v.StackLabControllerTest - === 测试通过：成功捕获 StackOverflowError (臃肿模式) ===
+2026-01-10 21:49:20.875 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 6696 (started by lihao in E:\project\JVM)
+2026-01-10 21:49:20.876 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:49:20.876 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:49:23.178 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:49:23.291 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.815 seconds (process running for 3.633)
+2026-01-10 21:49:23.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:49:23.383 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:49:23.384 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.386 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:49:23.387 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:49:23.387 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:49:23.387 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:49:23.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:49:23.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:49:23.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:49:23.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:49:23.388 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:49:23.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:49:23.390 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:49:23.391 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:49:23.392 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:49:23.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:49:23.393 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:49:23.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:49:23.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:49:23.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:49:23.395 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:49:24.225 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:49:24.225 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:49:24.225 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:49:24.225 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:49:24.225 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:49:24.226 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:49:24.227 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:49:24.227 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:49:24.227 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:51:54.154 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 26560 (started by lihao in E:\project\JVM)
+2026-01-10 21:51:54.155 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:51:54.155 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:51:56.448 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:51:56.546 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.839 seconds (process running for 3.761)
+2026-01-10 21:51:56.634 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:51:56.634 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:51:56.635 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.636 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.637 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:51:56.638 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:51:56.638 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:51:56.638 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:51:56.638 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:51:56.639 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:51:56.639 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:51:56.639 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:51:56.639 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 58 MB
+2026-01-10 21:51:56.640 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 112 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:51:56.641 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:51:56.642 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:51:56.642 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:51:56.642 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:51:57.253 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:51:57.254 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1900
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2000
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2100
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2200
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2300
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2400
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2500
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2600
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2700
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2800
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2900
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3000
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3100
+2026-01-10 21:51:57.255 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3200
+2026-01-10 21:51:57.256 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3300
+2026-01-10 21:51:57.256 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3400
+2026-01-10 21:52:13.798 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 26072 (started by lihao in E:\project\JVM)
+2026-01-10 21:52:13.799 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:52:13.800 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:52:16.487 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:52:16.690 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 3.3 seconds (process running for 4.124)
+2026-01-10 21:52:16.898 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:52:16.899 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:52:16.899 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.901 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.902 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.903 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:52:16.903 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.904 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:52:16.905 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.906 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:52:16.906 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:52:16.907 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:52:16.907 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:52:16.908 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:52:16.909 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:52:16.909 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:52:16.909 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:52:16.910 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:52:16.911 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:52:16.912 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:52:16.912 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:52:16.913 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:52:16.914 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 50 MB
+2026-01-10 21:52:16.916 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 112 MB
+2026-01-10 21:52:16.916 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:52:16.917 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:52:16.917 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:52:16.918 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 65 MB
+2026-01-10 21:52:16.918 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 66 MB
+2026-01-10 21:52:16.918 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:52:16.919 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:52:16.919 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:52:16.919 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:52:16.919 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:52:16.920 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:52:16.920 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:52:16.920 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:52:16.921 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:52:16.921 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:52:16.921 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:52:16.921 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:52:17.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:52:17.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:52:17.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:52:17.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1900
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2000
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2100
+2026-01-10 21:52:17.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2200
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2300
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2400
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2500
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2600
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2700
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2800
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2900
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3000
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3100
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3200
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3300
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3400
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3500
+2026-01-10 21:52:17.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3600
+2026-01-10 21:52:46.869 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 12144 (started by lihao in E:\project\JVM)
+2026-01-10 21:52:46.870 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:52:46.871 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:52:48.967 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:52:49.067 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.669 seconds (process running for 3.532)
+2026-01-10 21:52:49.148 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:52:49.149 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:52:49.150 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : -Xss2m (-Xss2m)
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:52:49.152 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:52:49.153 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:52:49.153 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:52:49.153 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:52:49.153 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:52:49.155 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:52:49.155 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:52:49.155 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:52:49.155 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:52:49.155 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:52:49.157 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:52:49.157 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:52:49.157 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:52:49.157 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:52:49.158 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:52:49.159 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:52:49.964 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:52:49.964 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:52:49.965 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:52:49.966 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1900
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2000
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2100
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2200
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2300
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2400
+2026-01-10 21:52:49.967 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2500
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2600
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2700
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2800
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2900
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3000
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3100
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3200
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3300
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3400
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3500
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3600
+2026-01-10 21:52:49.968 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3700
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3800
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3900
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4000
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4100
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4200
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4300
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4400
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4500
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4600
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4700
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4800
+2026-01-10 21:52:49.969 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 4900
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5000
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5100
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5200
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5300
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5400
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5500
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5600
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5700
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5800
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 5900
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6000
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6100
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6200
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6300
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6400
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6500
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6600
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6700
+2026-01-10 21:52:49.970 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6800
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 6900
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7000
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7100
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7200
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7300
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7400
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7500
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7600
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7700
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7800
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 7900
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8000
+2026-01-10 21:52:49.971 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8100
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8200
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8300
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8400
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8500
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8600
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8700
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8800
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 8900
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9000
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9100
+2026-01-10 21:52:49.972 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9200
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9300
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9400
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9500
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9600
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9700
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9800
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 9900
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10000
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10100
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10200
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10300
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10400
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10500
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10600
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10700
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10800
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 10900
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 11000
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 11100
+2026-01-10 21:52:49.973 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 11200
+2026-01-10 21:55:47.924 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 3192 (started by lihao in E:\project\JVM)
+2026-01-10 21:55:47.925 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 21:55:47.925 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 21:55:50.191 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 21:55:50.276 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.774 seconds (process running for 3.633)
+2026-01-10 21:55:50.370 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 21:55:50.370 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 21:55:50.371 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 21:55:50.373 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : -Xss1m (-Xss1m)
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 21:55:50.374 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 21:55:50.375 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 21:55:50.375 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 21:55:50.375 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 21:55:50.376 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 21:55:50.376 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 21:55:50.376 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 21:55:50.378 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 49 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 21:55:50.380 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 21:55:50.381 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 21:55:50.381 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 21:55:50.381 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 21:55:50.381 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 21:55:50.382 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 100
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 200
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 300
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 400
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 500
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 600
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 700
+2026-01-10 21:55:51.171 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 800
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 900
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1000
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1100
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1200
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1300
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1400
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1500
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1600
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1700
+2026-01-10 21:55:51.172 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1800
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 1900
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2000
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2100
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2200
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2300
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2400
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2500
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2600
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2700
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2800
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 2900
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3000
+2026-01-10 21:55:51.173 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3100
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3200
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3300
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3400
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3500
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3600
+2026-01-10 21:55:51.174 [main] INFO  c.e.j.c.r.vmstack.StackLabService - >> [臃肿栈帧模式] 当前深度: 3700
+2026-01-10 22:05:00.495 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 19524 (started by lihao in E:\project\JVM)
+2026-01-10 22:05:00.496 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 22:05:00.497 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 22:05:02.775 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 22:05:02.888 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.818 seconds (process running for 3.71)
+2026-01-10 22:05:02.983 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 22:05:02.984 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 22:05:02.984 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 22:05:02.987 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 22:05:02.988 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 22:05:02.988 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 22:05:02.988 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 22:05:02.988 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 22:05:02.989 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 22:05:02.989 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 57 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 112 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 22:05:02.990 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 22:05:02.991 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 22:05:03.771 [main] WARN  c.e.j.c.r.vmstack.StackLabService - === 开始压力测试：尝试创建 100 个线程 ===
+2026-01-10 22:05:03.772 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 0 个线程...
+2026-01-10 22:05:03.776 [main] INFO  c.e.j.c.r.vmstack.StackLabService - === 成功创建所有 100 个线程，未发生 OOM ===
+2026-01-10 22:05:32.338 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Starting StackLabServiceTest using Java 17.0.12 with PID 27884 (started by lihao in E:\project\JVM)
+2026-01-10 22:05:32.339 [main] DEBUG c.e.j.c.r.v.StackLabServiceTest - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-10 22:05:32.340 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - No active profile set, falling back to 1 default profile: "default"
+2026-01-10 22:05:34.441 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-01-10 22:05:34.545 [main] INFO  c.e.j.c.r.v.StackLabServiceTest - Started StackLabServiceTest in 2.61 seconds (process running for 3.369)
+2026-01-10 22:05:34.620 [main] INFO  c.e.jvmlab.config.JvmStartupReport - ===================== JVM 参数自检 =====================
+2026-01-10 22:05:34.620 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【堆内存（Heap）】
+2026-01-10 22:05:34.621 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始堆大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.623 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大堆大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   新生代大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【线程栈（Thread Stack）】
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【元空间（Metaspace）】
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   初始元空间大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大元空间大小 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【直接内存（Direct Memory）】
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   最大直接内存 : (未配置) ((未配置))
+2026-01-10 22:05:34.624 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【GC 日志配置】
+2026-01-10 22:05:34.625 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Xlog = (未配置)
+2026-01-10 22:05:34.625 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【OOM Dump】
+2026-01-10 22:05:34.625 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   是否开启 : (未配置) ((未配置))
+2026-01-10 22:05:34.626 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Dump 文件路径 : (未配置) ((未配置))
+2026-01-10 22:05:34.626 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【垃圾收集器】
+2026-01-10 22:05:34.627 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   使用的 GC = G1 Young Generation, G1 Old Generation
+2026-01-10 22:05:34.627 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+===================== JVM 运行时内存区域 =====================
+2026-01-10 22:05:34.627 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 【堆（Heap）】
+2026-01-10 22:05:34.627 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 768 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 57 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 136 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 12224 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【非堆（Non-Heap，包含元空间 Metaspace）】
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Init     : 7 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Used     : 64 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Committed: 65 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   Max      : 0 MB
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【程序计数器（PC Register）】
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每个线程一个 PC 寄存器，用于保存下一条要执行的指令地址（JVM 规范固定，无可配参数）。
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【虚拟机栈（Java Virtual Machine Stack）】
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   当前线程数量     : 8
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   守护线程数量     : 7
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   峰值线程数量     : 10
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   总创建线程数     : 10
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   每线程栈大小 (-Xss): 请查看 JVM 参数配置
+2026-01-10 22:05:34.628 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+【本地方法栈（Native Method Stack）】
+2026-01-10 22:05:34.629 [main] INFO  c.e.jvmlab.config.JvmStartupReport -   与 JVM Stack 共用栈空间，大小同 -Xss（依赖具体 JVM 实现）。
+2026-01-10 22:05:34.629 [main] INFO  c.e.jvmlab.config.JvmStartupReport - 
+========================== 结束 ==========================
+
+2026-01-10 22:05:35.346 [main] WARN  c.e.j.c.r.vmstack.StackLabService - === 开始压力测试：尝试创建 5000 个线程 ===
+2026-01-10 22:05:35.347 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 0 个线程...
+2026-01-10 22:05:35.389 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 1000 个线程...
+2026-01-10 22:05:35.434 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 2000 个线程...
+2026-01-10 22:05:35.477 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 3000 个线程...
+2026-01-10 22:05:35.523 [main] INFO  c.e.j.c.r.vmstack.StackLabService - 已成功创建 4000 个线程...
+2026-01-10 22:05:35.572 [main] INFO  c.e.j.c.r.vmstack.StackLabService - === 成功创建所有 5000 个线程，未发生 OOM ===

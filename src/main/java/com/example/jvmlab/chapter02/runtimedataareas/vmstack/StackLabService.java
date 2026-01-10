@@ -83,4 +83,78 @@ public class StackLabService {
     public void resetCounter() {
         depthCounter.set(0);
     }
+
+    // ========================================================================
+    // 新增实验一：验证局部变量表大小对栈深度的影响（回答面试追问）
+    // ========================================================================
+
+    /**
+     * 实验方法：臃肿的栈帧递归
+     * <p>
+     * 目的：对比普通的 infiniteDive，验证当方法内定义了大量局部变量时，
+     * 单个栈帧（Stack Frame）变大，导致同样的 -Xss 内存下，能容纳的递归深度显著减少。
+     */
+    public void recursionWithBloatedStackFrame(int depth) {
+        // 记录深度
+        depthCounter.set(depth);
+        
+        // --- 制造“臃肿”的局部变量表 ---
+        // 在 64位 JVM 上，long 占用 2个 Slot (槽位)
+        // 这里定义 50 个 long 变量，大约占用 100 个 Slot
+        long v1=1, v2=2, v3=3, v4=4, v5=5, v6=6, v7=7, v8=8, v9=9, v10=10;
+        long v11=1, v12=2, v13=3, v14=4, v15=5, v16=6, v17=7, v18=8, v19=9, v20=10;
+        long v21=1, v22=2, v23=3, v24=4, v25=5, v26=6, v27=7, v28=8, v29=9, v30=10;
+        long v31=1, v32=2, v33=3, v34=4, v35=5, v36=6, v37=7, v38=8, v39=9, v40=10;
+        long v41=1, v42=2, v43=3, v44=4, v45=5, v46=6, v47=7, v48=8, v49=9, v50=10;
+
+        // 使用一下变量，防止被 JIT 编译器优化掉（Dead Code Elimination）
+        long sum = v1+v10+v20+v30+v40+v50;
+
+        if (depth % 100 == 0) {
+            log.info(">> [臃肿栈帧模式] 当前深度: {}", depth);
+        }
+
+        // 继续递归，直到 StackOverflow
+        recursionWithBloatedStackFrame(depth + 1);
+    }
+
+    // ========================================================================
+    // 新增实验二：高并发场景模拟（线程创建）
+    // ========================================================================
+
+    /**
+     * 实验方法：模拟高并发长连接
+     * <p>
+     * 警告：此方法会创建大量线程。
+     * 在 -Xss 较大（如 1MB）时，很容易抛出 OOM: unable to create new native thread。
+     * 调优目标：将 -Xss 调小（如 256k），观察能否创建更多线程。
+     */
+    public void simulateConcurrentConnections(int threadCount) {
+        log.warn("=== 开始压力测试：尝试创建 {} 个线程 ===", threadCount);
+        
+        for (int i = 0; i < threadCount; i++) {
+            final int index = i;
+            try {
+                Thread t = new Thread(() -> {
+                    try {
+                        // 模拟长连接，持有栈内存不释放
+                        Thread.sleep(Long.MAX_VALUE);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }, "Conn-Thread-" + i);
+                t.start();
+
+                if (index % 1000 == 0) {
+                    log.info("已成功创建 {} 个线程...", index);
+                }
+            } catch (OutOfMemoryError e) {
+                log.error("!!! 发生 OOM !!! 在创建第 {} 个线程时失败。", index);
+                log.error("错误信息: {}", e.getMessage());
+                log.error("当前 JVM 参数建议：尝试减小 -Xss 参数（如 -Xss256k）以容纳更多线程。");
+                throw e; // 抛出异常中断测试
+            }
+        }
+        log.info("=== 成功创建所有 {} 个线程，未发生 OOM ===", threadCount);
+    }
 }
