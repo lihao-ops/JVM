@@ -75,7 +75,39 @@
 - **JIT 观察**: `-XX:+PrintCompilation`
 - **GC 日志**: `-Xlog:gc*` (JDK 9+) 或 `-XX:+PrintGCDetails` (JDK 8)
 
----
+### 2.5 实验目录组织规范 (Experiment Directory Structure)
+
+**【强制】** 按照书籍小节将实验组织到对应的子目录中，每个实验目录包含：
+- **测试类**: `XxxVerificationTest.java` - 验证实验代码
+- **测试报告**: `XxxVerificationTest_Report.md` - 测试执行结果报告
+
+**目录结构示例** (以第2章为例):
+```
+chapter02/
+├── runtimedataareas/           # 2.2节 运行时数据区域
+│   ├── overview/               # 总览实验（验证整体架构图）
+│   │   ├── JvmRuntimeDataAreasOverviewTest.java
+│   │   └── JvmRuntimeDataAreasOverviewTest_Report.md
+│   ├── programcounter/         # 2.2.1 程序计数器
+│   │   ├── ProgramCounterVerificationTest.java
+│   │   └── ProgramCounterVerificationTest_Report.md
+│   ├── vmstack/                # 2.2.2 虚拟机栈
+│   ├── nativemethodstack/      # 2.2.3 本地方法栈
+│   ├── javaheap/               # 2.2.4 Java堆
+│   └── metaspace/              # 2.2.5 方法区/元空间
+└── oomexperiments/             # 2.4节 OOM 实战
+```
+
+**命名规则**:
+| 类型 | 命名格式 | 示例 |
+|------|---------|------|
+| 目录名 | 小写英文无分隔符 (Java包兼容) | `programcounter` |
+| 测试类 | 首字母大写驼峰 + `VerificationTest` | `ProgramCounterVerificationTest.java` |
+| 报告 | 测试类名 + `_Report.md` | `ProgramCounterVerificationTest_Report.md` |
+
+
+
+
 
 ## 3. 交互与回答规范 (Interaction Protocol)
 
