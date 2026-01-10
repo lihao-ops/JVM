@@ -1,4 +1,4 @@
-package com.example.jvmlab.chapter02.stack;
+package com.example.jvmlab.chapter02.stackError;
 
 import lombok.extern.slf4j.Slf4j;
 

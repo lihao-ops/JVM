@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <!-- <scope>test</scope>  已注释掉，允许在 src/main/java 中使用 JUnit -->
         </dependency>
     </dependencies>
 

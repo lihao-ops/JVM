@@ -59,6 +59,14 @@
   - 多线程导致 OOM：`src/main/java/com/example/jvmlab/chapter02/stack/ThreadOomTest.java`
     - 目的：演示创建过多线程导致操作系统内存耗尽 (unable to create new native thread)
     - 实验方法：运行 `scripts/chapter02/run_thread_oom_test.bat` (参数 -Xss2M)
+- `HeapOomTest` 堆溢出实战
+  - 堆内存耗尽：`src/main/java/com/example/jvmlab/chapter02/heap/HeapOomTest.java`
+    - 目的：演示不断创建对象且不释放，最终导致 Java heap space 溢出
+    - 实验方法：运行 `scripts/chapter02/run_heap_oom_test.bat` (参数 -Xms20m -Xmx20m)
+- `StackLabController` 栈帧深潜实战
+  - 栈帧入栈出栈观察：`src/main/java/com/example/jvmlab/chapter02/stack/StackLabController.java`
+    - 目的：通过 Debugger 观察 Frames 列表变化，验证栈帧的 Push/Pop 过程
+    - 实验方法：运行 `scripts/chapter02/run_stack_debug.bat`，访问 `/jvm/stack/debug`
 
 - 异常场景（策略实现）
   - 堆 OOM：`src/main/java/com/example/jvmlab/exceptionlab/scenario/HeapOomScenario.java:90`
@@ -103,7 +111,7 @@
 ## 第4章 监控与故障处理工具
 - JVM 参数：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:35`
 - 线程快照（jstack）：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:48`
-- 监控聚合：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:65`
+-监控聚合：`src/main/java/com/example/jvmlab/chapter04/Chapter04Controller.java:65`
 - 运行时监控总览：`src/main/java/com/example/jvmlab/monitor/RuntimeMonitorController.java:31`
 - 监控工具：`src/main/java/com/example/jvmlab/common/JvmMemoryMonitor.java:33/145/200/285`
   - `printMemoryInfo`、`getMemoryInfoMap`、`getGCStats`、`printJvmArguments`
